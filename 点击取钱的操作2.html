@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>点击取钱的操作</title>
+<style>
+*{ margin:0; padding:0; list-style:none; font-family: "微软雅黑","张海山锐线体简"}
+
+</style>
+<script>
+window.onload=function(){
+	var oBtn=document.getElementById('btn1');
+	oBtn.onclick=proMpt;
+
+	function proMpt(){
+		var oPm=window.prompt('请输入账号','比如：95599');
+		if(oPm){
+			var pass=window.prompt('请输入密码','比如您的生日');
+			if(pass){
+				conFim();	
+			}else{
+				alert('不能不输入密码');
+				proMp();
+			}
+			
+		}else{
+			alert('不能不输入账号');
+			proMpt();
+		}
+	};
+	function conFim(){
+		var con=window.confirm('确定让我取走您的钱');
+		if(con){
+			var money=1000;
+			alert('穷鬼,只有：'+money);
+			for (var i = 10; i > 0.; i--) {
+				money-=100;
+				alert('您的余额还有'+money);
+			}
+		}else{
+			alert('不能取消');
+			conFim();
+		}
+	}
+	
+	
+	
+};
+</script>
+</head>
+
+<body>
+
+<input type="button" value="红包" id="btn1">
+
+</body>
+</html>

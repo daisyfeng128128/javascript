@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>pack_bound_un</title>
+<style>
+*{ margin:0; padding:0; list-style:none; font-family: "微软雅黑","张海山锐线体简"}
+
+</style>
+<script>
+window.onload=function(){
+	var oBtn=document.getElementById('btn1');
+
+	addEvent(oBtn,'contextmenu',function(ev){
+		var oEvt=ev||event;
+		// alert('ok')
+		oEvt.preventDefault&&oEvt.preventDefault();
+		//for chrome阻止默认
+		return false;//chrome下阻止失败
+	})
+
+ 
+};
+
+
+function addEvent(obj,sType,fn){
+	if (obj.addEventListener) {
+		obj.addEventListener(sType,fn,false);
+	}else{
+		obj.attachEvent('on'+sType,fn);
+	}
+}
+
+function removeEvent(obj,sType,fn){
+	if (obj.removeEventListener){
+		obj.removeEventListener(sType,fn,false);
+	}else{
+		obj.detachEvent('on'+sType,fn);
+	}
+}	
+
+
+</script>
+</head>
+
+<body>
+	<input type="button" value="按钮" id="btn1" name="">
+</body>
+</html>

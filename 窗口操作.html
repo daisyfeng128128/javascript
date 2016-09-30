@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>窗口操作</title>
+<style>
+*{ margin:0; padding:0; list-style:none; font-family: "微软雅黑","张海山锐线体简"}
+
+</style>
+<script>
+window.onload=function(){
+	var oBtn=document.getElementById('btn1');
+	oBtn.onclick=function(){
+		//BOM
+		//window.open(地址,目标)	
+		//window.open('http://www.baidu.com');
+		//window.open('http://www.baidu.com','_self');
+		//window.open('','_blank');
+		//window.open('about:blank','_blank');//空窗口
+		//window.open('about:blank','_self');//空窗口
+		
+		var newWin = window.open('about:blank','_blank');
+		//alert(newWin);		//[object Window]	==	窗口
+		
+		document.write('ok');	//document是js代码所在的位置
+		//write	会擦掉页面所有内容
+	};	
+};
+</script>
+</head>
+
+<body>
+
+<!--<a href="#" target="_blank"></a>-->
+<input type="button" value="开窗口" id="btn1">
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>兄弟节点</title>
+<style>
+*{ margin:0; padding:0; list-style:none; font-family: "微软雅黑","张海山锐线体简"}
+#ul1 li{height:30px;background:#ccc;margin:10px;}
+</style>
+<script>
+window.onload=function(){
+	var oUl=document.getElementById('ul1');
+	var oLi0=document.getElementById('li0');
+	var oLi1=document.getElementById('li1');
+	var preNode=oLi1.previousElementSibling||oLi1.previousSibling;
+	preNode.style.background='red';
+};
+</script>
+</head>
+
+<body>
+
+<ul id="ul1">
+	<li id="li0">2342342343</li>
+	<li id="li1">00000000</li>
+</ul>
+
+</body>
+</html>

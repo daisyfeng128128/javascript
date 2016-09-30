@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>赋值</title>
+</head>
+<script type="text/javascript">
+	window.onload=function(){
+		var oUl=document.getElementById('ul1');
+		var aLi=oUl.children;
+		var aLi0=aLi[0];
+
+		alert(oUl.children[0]==aLi0);	//true
+		oUl.innerHTML=oUl.innerHTML;
+		alert(oUl.children[0]==aLi0)	//false
+
+	}
+</script>
+<body>
+	<ul id="ul1">
+		<li>1</li>
+		<li>1</li>
+		<li>1</li>
+	</ul>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>只能输入数字</title>
+<style>
+*{ margin:0; padding:0; list-style:none; font-family: "微软雅黑","张海山锐线体简"}
+</style>
+<script>
+window.onload=function(){
+	var oIpt=document.getElementById('ipt');
+	oIpt.onkeydown=function(ev){
+		//up时字已经上去了
+		var oEvt=ev||event;
+		if (oEvt.keyCode<48||oEvt.keyCode>57) {
+			return false;
+		}
+	}
+
+	
+};
+</script>
+</head>
+
+<body>
+	<input type="text" id="ipt" name="">
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>pack_bound_un</title>
+<style>
+*{ margin:0; padding:0; list-style:none; font-family: "微软雅黑","张海山锐线体简"}
+
+</style>
+<script>
+window.onload=function(){
+	var oBtn=document.getElementById('btn1');
+
+	oBtn.onclick=show;
+
+	function show(){
+		alert(111);
+	}
+
+	removeEvent(oBtn,'click',show);
+	//配对使用，像这样不配对的无效
+
+};
+
+function addEvent(obj,sType,fn){
+	if (obj.addEventListener) {
+		obj.addEventListener(sType,fn,false);
+	}else{
+		obj.attachEvent('on'+sType,fn);
+	}
+}
+
+function removeEvent(obj,sType,fn){
+	if (obj.removeEventListener){
+		obj.removeEventListener(sType,fn,false);
+	}else{
+		obj.detachEvent('on'+sType,fn);
+	}
+}	
+
+
+</script>
+</head>
+
+<body>
+	<input type="button" value="按钮" id="btn1" name="">
+</body>
+</html>

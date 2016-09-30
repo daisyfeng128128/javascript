@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>提交留言</title>
+<style>
+*{ margin:0; padding:0; list-style:none; font-family: "微软雅黑","张海山锐线体简"}
+textarea{width: 500px; height: 500px; }
+</style>
+<script>
+window.onload=function(){
+	var oT1=document.getElementById('t1');
+	var oBtn=document.getElementById('btn');
+	var oT2=document.getElementById('t2');
+
+	oT1.onkeydown=function(ev){
+		//up时字已经上去了
+		var oEvt=ev||event;
+		if (oEvt.keyCode==13) {
+			oT2.value=oT1.value+'\n'+oT2.value;
+			oT1.value='';
+		}
+	}
+
+	
+};
+</script>
+</head>
+
+<body>
+	<input type="text" id="t1" name="">
+	<input type="button" id="btn" value="按钮" name=""><br/>
+	<textarea id="t2"></textarea>
+</body>
+</html>

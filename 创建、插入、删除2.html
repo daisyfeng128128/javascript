@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>创建、插入、删除</title>
+<style>
+*{ margin:0; padding:0; list-style:none; font-family: "微软雅黑","张海山锐线体简"}
+
+</style>
+<script>
+window.onload=function(){
+	var oT1=document.getElementById('ipt1');
+	var oBtn1=document.getElementById('btn1');
+	var oUl=document.getElementById('ul1');	
+	
+	oBtn1.onclick=function(){
+		var oLi=document.createElement("li");
+		oLi.innerHTML=oT1.value+'<a href="javscript:;">删除</a>';
+
+		oLi.children[0].onclick=function(){
+			oUl.removeChild(this.parentNode);
+		};	
+
+		if(oUl.children.length==0){
+			oUl.appendChild(oLi);
+		}else{
+			oUl.insertBefore(oLi,oUl.children[0]);
+		}	
+	};
+
+};
+</script>
+</head>
+
+<body>
+<input type="text"  id="ipt1">
+<input type="button" value="添加" id="btn1">
+<ul id="ul1">
+</ul>
+
+</body>
+</html>

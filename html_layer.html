@@ -1,0 +1,27 @@
+<!doctype html>
+<html onclick="alert('html')">
+<head>
+<meta charset="utf-8">
+<title>表单</title>
+<style>
+*{ margin:0; padding:0; list-style:none; font-family: "微软雅黑","张海山锐线体简"}
+#div1{width:100px; height: 100px; background-color: red; position: absolute; left: 0; top: 0; }
+</style>
+<script>
+window.onload=function(){
+	window.onclick=function(){
+		alert('window')
+	};
+	document.onclick=function(){
+		alert('doc')
+	};
+
+	
+};
+</script>
+</head>
+
+<body onclick="alert('body')">
+	<div id="div1" onclick="alert('div')"></div>
+</body>
+</html>

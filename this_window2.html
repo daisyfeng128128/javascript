@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>this变window</title>
+	<script type="text/javascript">
+		window.onload=function(){
+			var oBtn=document.getElementById('btn1');
+			/*oBtn.onclick=function(){
+				//alert(this);
+				var _this=this;
+				show();
+				function show(){
+					alert(_this);
+				}
+			}*/
+
+			oBtn.onclick=function(){
+				(function(a){
+					alert(a);
+				})(this);
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="button" value="按钮" id="btn1" name="">
+</body>
+</html>

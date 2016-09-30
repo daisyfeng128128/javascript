@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>键盘控制盒子移动</title>
+<style>
+*{ margin:0; padding:0; list-style:none; font-family: "微软雅黑","张海山锐线体简"}
+#div1{width: 200px; height: 200px;background-color: red; position: absolute; left: 0; top: 0; }
+</style>
+<script>
+window.onload=function(){
+	var oDiv1=document.getElementById('div1');
+	document.onkeydown=function(ev){
+		var oEvt=ev||event;
+		switch(oEvt.keyCode){
+			case 37:
+			//左
+			oDiv1.style.left=oDiv1.offsetLeft-10+'px';
+			break;
+
+			case 38:
+			//上
+			oDiv1.style.top=oDiv1.offsetTop-10+'px';
+			break;
+
+			case 39:
+			//右
+			oDiv1.style.left=oDiv1.offsetLeft+10+'px';
+			break;
+
+			case 40:
+			//左
+			oDiv1.style.top=oDiv1.offsetTop+10+'px';
+			break;
+
+		};
+	}
+
+
+};
+</script>
+</head>
+
+<body>
+	<div id="div1"></div>
+</body>
+</html>

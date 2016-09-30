@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>滚轮</title>
+	<script type="text/javascript">
+		if (navigator.userAgent.toLowerCase().indexOf('firefox')!=-1) {
+			document.addEventListener('DOMMouseScroll',fnWheel,false)
+		}else{
+			//给其他
+			document.onmousewheel=fnWheel;  //下 负（-120）
+		}
+
+		function fnWheel(ev){
+			var oEvt=ev||event;
+			//滚动方向
+			//alert(oEvt.detail)	//下 正(3)	ff
+			//alert(oEvt.wheelDelta) //下(-120) chrome ie
+			var down=false;
+			if (oEvt.detail) {
+				//ff
+				//alert(oEvt.detail)
+				down=oEvt.detail>0?true:false;
+			}else{
+				down=oEvt.wheelDelta>0?false:true;
+			}
+
+			if (down) {
+				console.log('down')
+			}else{
+				console.log("up")
+			}
+
+
+
+		}
+	</script>
+</head>
+<body>
+</body>
+</html>

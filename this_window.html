@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>this变window</title>
+	<script type="text/javascript">
+		window.onload=function(){
+			//问题
+			/*var timer=setTimeout(function(){
+				alert(this);
+			},2000);*/ 
+
+			//解决
+			/*var oBtn=document.getElementById('btn1');
+			oBtn.onclick=function(){
+				var _this=this;
+				setTimeout(function(){
+					alert(_this);
+				},2000);
+			}*/	
+
+			var oBtn=document.getElementById('btn1');
+			oBtn.onclick=function(){
+				(function(a){
+					setTimeout(function(){
+						alert(a)
+					},2000)
+				})(this);
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="button" value="按钮" id="btn1" name="">
+</body>
+</html>

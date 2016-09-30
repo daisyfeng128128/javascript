@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>滚轮</title>
+	<script type="text/javascript">
+		if (navigator.userAgent.toLowerCase().indexOf('firefox')!=-1) {
+			document.addEventListener('DOMMouseScroll',show,false)
+		}else{
+			//给其他
+			document.onmousewheel=show;
+		}
+
+		function show(){
+			alert('ok');
+		}
+	</script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>drag</title>
+<style>
+*{ margin:0; padding:0; list-style:none; font-family: "微软雅黑","张海山锐线体简"}
+#div1{width: 200px; height: 200px; background-color:red; position:absolute; left: 0; top: 0; }
+.border{border: #000 dashed 10px; width: 180px; height: 180px; position: absolute; left: 0; top: 0; }
+</style>
+<script>
+//1.加载多张图片	0-----76
+//http://www.zhinengshe.com/works/3525/img/0.jpg
+
+window.onload=function(){
+	var oDiv=document.getElementById('div1');
+	oDiv.onmousedown=function(ev){
+		var oEvt=ev||event;
+		var disX=oEvt.clientX-oDiv.offsetLeft;
+		var disY=oEvt.clientY-oDiv.offsetTop;
+
+		//创建虚拟框
+		var oBorderDiv=document.createElement("div");
+		oBorderDiv.className="border";
+		oBorderDiv.style.left=oDiv.offsetLeft+"px";
+		oBorderDiv.style.top=oDiv.offsetTop+"px";
+		document.body.appendChild(oBorderDiv);
+		
+		document.onmousemove=function(ev){
+			var oEvt=ev||event;
+			oBorderDiv.style.left=oEvt.clientX-disX+"px";
+			oBorderDiv.style.top=oEvt.clientY-disY+"px";
+		}
+
+		document.onmouseup=function(){
+			document.onmousemove=document.onmouseup=null;
+			oDiv.style.left=oBorderDiv.offsetLeft+'px';
+			oDiv.style.top=oBorderDiv.offsetTop+'px';
+
+			document.body.removeChild(oBorderDiv);
+			//释放
+			oDiv.releaseCapture&&oDiv.releaseCapture();
+		}
+
+		oDiv.setCapture&&oDiv.setCapture();
+		return false;
+
+	}
+
+};
+</script>
+</head>
+
+<body>
+	<div id="div1">
+		000000
+		<img src="img/a3.png"/>
+		111111
+	</div>
+</body>
+</html>

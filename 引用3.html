@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>引用</title>
+<style>
+*{ margin:0; padding:0; list-style:none; font-family: "微软雅黑","张海山锐线体简"}
+</style>
+<script>
+	var json1={a:1,b:2};
+	//var json2=json1;	//直接复制，复制的是json1的地址
+	var json2={};
+	for(var key in json1){
+		//手动复制json1的内容
+		json2[key]=json1[key];
+	}
+	json2.c=3;
+	console.log(json2);
+	console.log(json1)
+
+</script>
+</head>
+
+<body>
+
+
+
+</body>
+</html>

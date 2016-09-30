@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>数组排序3</title>
+<style>
+*{ margin:0; padding:0; list-style:none; font-family: "微软雅黑","张海山锐线体简"}
+</style>
+<script>
+var arr=[23,45,65,7,9,12,3];
+
+function findMin(arr,index){
+	var minNum=9999999999;
+	var minIndex=1;
+	for(var i=index;i<arr.length;i++){
+		if(arr[i]<minNum){
+			minNum=arr[i];			
+			minIndex=i;	
+		}
+	}
+	return minIndex;
+	//找最小，返回的是最小数的位置
+}
+
+for (var i = 0; i < arr.length; i++) {
+	//找最小
+	var numIndex=findMin(arr,i);
+
+	//交换
+	// arr[numIndex]最小
+	// arr[i]	当前
+	var tmp=arr[i];		//临时储存变量			
+	
+	arr[i]=arr[numIndex];
+	arr[numIndex]=tmp;
+	alert(arr)
+
+
+}
+
+alert(arr)
+
+</script>
+</head>
+
+<body>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>pack_bound_unbound</title>
+<style>
+*{ margin:0; padding:0; list-style:none; font-family: "微软雅黑","张海山锐线体简"}
+
+</style>
+<script>
+window.onload=function(){
+	var oBtn=document.getElementById('btn1');
+
+	addEvent(oBtn,'click',show);
+	addEvent(oBtn,'click',show2);
+
+	function addEvent(obj,sType,fn){
+		if (obj.addEventListener) {
+			obj.addEventListener(sType,fn,true);
+		}else{
+			obj.attachEvent('on'+sType,fn);
+		}
+	}
+	removeEvent(oBtn,'click',show);
+
+	function removeEvent(obj,sType,fn){
+		if (obj.removeEventListener){
+			obj.removeEventListener(sType,fn,true);
+		}else{
+			obj.detachEvent('on'+sType,fn);
+		}
+	}
+
+	function show(){
+		console.log(111);
+	}
+	
+	function show2(){
+		console.log(222);
+	}
+	
+};
+</script>
+</head>
+
+<body>
+	<input type="button" value="按钮" id="btn1" name="">
+</body>
+</html>

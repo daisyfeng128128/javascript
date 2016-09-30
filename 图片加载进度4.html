@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>图片加载进度</title>
+<style>
+*{ margin:0; padding:0; list-style:none; font-family: "微软雅黑","张海山锐线体简"}
+img{width:50px;}
+#bar{width: 500px; height: 30px; background-color: #ccc; position: relative; }
+#bar span{position: absolute; left: 0; top: 0; background-color: #999; height: 30px; width:500px;text-align: center; line-height:30px; }
+#bar #num{width: 50%; position: relative; height: 30px; overflow: hidden; background-color: #333; }
+#num span{color:#fff; }
+
+</style>
+</style>
+<script>
+//1.加载多张图片	0-----76
+//http://www.zhinengshe.com/works/3525/img/0.jpg
+
+window.onload=function(){
+	var oBar=document.getElementById('bar');
+	var oProBar=document.getElementById('proBar');
+	var oNum=document.getElementById('num');
+	var oNumBar=document.getElementById('numBar');
+	
+	var count=77;
+	var loaded=0;
+	for (var i = 0; i < count; i++) {
+		var oImg=new Image();
+		oImg.onload=function(){
+			loaded++;
+			var progress=Math.floor(loaded/count*100)+'%';
+			oNum.style.width=progress;
+			oProBar.innerHTML=progress;
+			oNumBar.innerHTML=progress;
+
+			
+		}
+
+		oImg.src='http://www.zhinengshe.com/works/3525/img/'+i+'.jpg';
+		document.body.appendChild(oImg);
+
+	}
+	
+};
+</script>
+</head>
+
+<body>
+	<div id="bar">
+		<span id="proBar"></span>
+		<div id="num">
+			<span id="numBar"></span>
+		</div>
+	</div>
+</body>
+</html>

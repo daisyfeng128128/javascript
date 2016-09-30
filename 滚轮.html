@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>滚轮</title>
+	<script type="text/javascript">
+		document.onmousewheel=function(){
+			alert('ok');
+		}
+		//FF会认为滚轮事件是一个DOM事件，DOM事件一定要绑定
+
+		document.addEventListener('DOMMouseScroll',function(){
+			alert('ok')
+		},false);
+	</script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,9 @@
+2016-1-21 关于innerHTML3
+
+alert(oUl.children[0]==aLi0)	
+oUl.innerHTML=oUl.innerHTML;
+alert(oUl.children[0]==aLi0)
+
+前后弹出结果为什么不同？
+
+base64

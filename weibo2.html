@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>微博</title>
+	<style type="text/css">
+		.box{width: 200px; height: 200px; background-color: red; position: absolute; left: 0; top: 0; }
+	</style>
+	<script type="text/javascript">
+	window.onload=function(){
+		var oIpt=document.getElementById('ipt1');
+		var oSpan=document.getElementById('s');
+
+		setInterval(function(){
+			oSpan.innerHTML='还可以输入'+(60-oIpt.value.length)+'个字';
+		},30)	
+	}
+
+	</script>
+</head>
+<body>
+	<input type="text" value="" id="ipt1" name="">
+	<span id="s">还可以输入60个字</span>
+</body>
+</html>

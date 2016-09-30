@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>微博</title>
+	<style type="text/css">
+		.box{width: 200px; height: 200px; background-color: red; position: absolute; left: 0; top: 0; }
+	</style>
+	<script type="text/javascript">
+	window.onload=function(){
+		var oIpt=document.getElementById('ipt1');
+		var oSpan=document.getElementById('s');
+		/*oIpt.onkeyup=function(){
+			console.log(111);
+		}*/
+		/*oIpt.onkeydown=function(){
+			console.log(222);
+		}*/
+		/*oIpt.oninput=function(){
+			console.log(333);
+		}*/   //for 高   ie低版本会挂
+
+		oIpt.onpropertychange=function(){
+			oSpan.innerHTML='还可以输入'+(60-oIpt.value.length)+'个字';
+		}		//ie
+	}
+
+	</script>
+</head>
+<body>
+	<input type="text" value="" id="ipt1" name="">
+	<span id="s">还可以输入60个字</span>
+</body>
+</html>

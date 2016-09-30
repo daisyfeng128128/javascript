@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>this变window</title>
+	<script type="text/javascript">
+		function show(b){
+			// alert(b)
+			// alert(typeof b);
+			b.style.background="red";
+			//this返回的就是锚对象 锚对象alert出来就是href里面的地址
+		}
+	</script>
+</head>
+<body>
+	<a href="javascript:;" title="abc" onclick="show(this)">连接</a>
+</body>
+</html>

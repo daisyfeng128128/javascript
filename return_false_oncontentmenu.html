@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>阻止表单提交</title>
+<style>
+*{ margin:0; padding:0; list-style:none; font-family: "微软雅黑","张海山锐线体简"}
+#ul1{width: 100px; height: 200px; display: none; background-color: #333; position: absolute; left: 0; top: 0; }
+#ul1 li{line-height: 30px; background-color: #ccc; margin-bottom: 5px; }
+</style>
+<script>
+window.onload=function(){
+	var oUl=document.getElementById('ul1');
+	document.oncontextmenu=function(){
+		//办事
+		//阻止默认行为
+		return false;
+		//默认行为
+	}
+	
+};
+</script>
+</head>
+
+<body>
+	<ul id="ul1">
+		<li>复制</li>
+		<li>粘贴</li>
+		<li>全选</li>
+		<li>另存为</li>
+	</ul>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>事件截获</title>
+<style>
+*{ margin:0; padding:0; list-style:none; font-family: "微软雅黑","张海山锐线体简"}
+#ul1{width: 100px; height: 200px; display: none; background-color: #333; position: absolute; left: 0; top: 0; }
+#ul1 li{line-height: 30px; background-color: #ccc; margin-bottom: 5px; }
+</style>
+<script>
+window.onload=function(){
+	var oDiv=document.getElementById("div1");
+	var oBtn=document.getElementById("btn1");
+	oBtn.onclick=function(){alert('五星体育')}
+	oDiv.onclick=function(){alert('我是外星人')};
+	oDiv.setCapture();
+;
+};
+</script>
+</head>
+
+<body>
+	<input type="button" value="按钮" id="btn1" name="">
+	<div id="div1"></div>
+</body>
+</html>

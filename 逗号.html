@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>逗号表达式的返回值</title>
+<style>
+*{ margin:0; padding:0; list-style:none; font-family: "微软雅黑","张海山锐线体简"}
+</style>
+<script>
+	// var a=(1+1,2+2,3+3);
+	alert(1+1,2+2,3+3)
+	alert(a=(1+1,2+2,3+3));
+	//逗号运算符( , )：先计算左边的操作数，然后计算右边的操作数，最后返回右操作数的值
+	//当逗号出现在其他的地方，好像就不是先算左边的，再算右边的，返回右边的了
+	//比如函数调用中,Math.max(x,y,z)这里的逗号就是分割函数参数
+	//声明变量时，var a=1,b=2,c=3 这里的逗号也是起分割的作用
+	alert(2*5,2*4);
+
+	var a = 10, b = 20;
+	function CommaTest(){
+		return a++, b++, 10;
+	}
+	var c = CommaTest();
+	alert(c);
+ 
+
+
+</script>
+</head>
+
+<body>
+</body>
+</html>

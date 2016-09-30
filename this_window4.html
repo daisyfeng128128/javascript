@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>this变window</title>
+	<script type="text/javascript">
+		window.onload=function(){
+			var oBtn=document.getElementById('btn1');
+			oBtn.attachEvent('onclick',function(ev){
+				var oEvt=ev||event;
+				alert(this)  //变window
+				// alert(oEvt.srcElement);
+				//寻找事件源   ie
+			})
+
+
+
+		}
+	</script>
+</head>
+<body>
+	<input type="button" value="按钮" id="btn1"/>
+</body>
+</html>

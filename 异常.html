@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>异常</title> 
+<style>
+*{ margin:0; padding:0; list-style:none; font-family: "微软雅黑","张海山锐线体简"}
+
+</style>
+<script>
+window.onload=function(){
+	//try{可能有异常的代码}catch(e){处理}
+	try{
+		var oDiv=document.getElementById('div');
+		oDiv.style.backgroundColor='red';
+	}catch(e){
+		alert(e)	//异常信息
+	}	
+};
+</script>
+</head>
+
+<body>
+
+<div id="div1"></div>
+
+</body>
+</html>

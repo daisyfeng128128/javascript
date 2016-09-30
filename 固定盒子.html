@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>固定在右下角的盒子</title>
+<style>
+*{ margin:0; padding:0; list-style:none; font-family: "微软雅黑","张海山锐线体简"}
+body{height:2000px;}
+#div1{width:100px;height:111px;background:red; position: absolute;right:0;bottom:0;}
+</style>
+<script>
+
+window.onscroll=function(){
+	var oDiv=document.getElementById('div1');
+	var scrTop=document.documentElement.scrollTop||document.body.scrollTop;
+	//alert(scrTop)
+	var cHeight=document.documentElement.clientHeight;
+	//alert(cHeight)
+	var divH=oDiv.offsetHeight;
+	//alert(divH);
+	oDiv.style.top=scrTop+cHeight-divH+'px';
+	console.log(scrTop+cHeight-divH+'px')
+};
+</script>
+</head>
+
+<body>
+
+<div id="div1"></div>
+
+</body>
+</html>

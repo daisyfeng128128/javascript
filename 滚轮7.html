@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>滚轮</title>
+	<style type="text/css">
+		*{margin:0; padding: 0; }
+		#div1{width:200px; height: 200px; background-color: red; }
+	</style>
+	<script type="text/javascript">
+	window.onload=function(){
+		// var oDiv=document.getElementById('div1');
+		var oDiv=document.getElementById('div1');
+		if (navigator.userAgent.toLowerCase().indexOf('firefox')!=-1) {
+			//给FF添加滚轮
+			oDiv.addEventListener('DOMMouseScroll',fnWheel,false);
+
+		}else{
+			oDiv.onmousewheel=fnWheel;
+		}
+
+		function fnWheel(ev){
+			var oEvt=ev||event;
+			var down=false;
+			if (oEvt.detail) {
+				down=oEvt.detail>0?true:false;
+			}else{
+				down=oEvt.wheelDelta>0?false:true;
+			}
+
+			if (down) {
+				oDiv.style.height=oDiv.offsetHeight+10+'px';
+			}else{
+				oDiv.style.height=oDiv.offsetHeight-10+'px';
+			}
+		}
+	}
+
+		
+	</script>
+</head>
+<body>
+	<div id="div1"></div>
+</body>
+</html>

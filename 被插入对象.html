@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>被插入对象</title>
+<style>
+*{ margin:0; padding:0; list-style:none; font-family: "微软雅黑","张海山锐线体简"}
+
+</style>
+<script>
+window.onload=function(){
+	var oLi1=document.getElementById('li1');
+	var oLi2=document.getElementById('li2');	
+	var oDiv=document.getElementById('div1');	
+	oDiv.insertBefore(oLi2,oLi1);
+	alert();
+	oDiv.insertBefore(oLi2,null);
+};
+</script>
+</head>
+
+<body>
+
+<div id="div1">
+	<li id="li1">li1</li>
+	<li id="li2">li2</li>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>提交留言</title>
+<style>
+*{ margin:0; padding:0; list-style:none; font-family: "微软雅黑","张海山锐线体简"}
+#div1{width:310px; height: 310px; position: relative; }
+#mask{width:80px; height: 80px; background-color: #f0f; opacity: 0.5; position: absolute; left: 0; top: 0; display: none; }
+#div2{position: absolute; left: 330px; top: 0; width: 310px; height: 310px; overflow: hidden; display: none; }
+</style>
+<script>
+window.onload=function(){
+	var oDiv1=document.getElementById('div1');
+	var oMask=document.getElementById('mask');
+	var oDiv2=document.getElementById('div2');
+
+	oDiv1.onmouseover=function(){
+		oMask.style.display=oDiv2.style.display="block";		
+	}
+	oDiv1.onmouseout=function(){
+		oMask.style.display=oDiv2.style.display="none";
+	}
+
+	oDiv1.onmousemove=function(ev){
+		var oEvt=ev||event;
+		var l=oEvt.clientX-oMask.offsetWidth/2;
+		var t=oEvt.clientY-oMask.offsetHeight/2;
+
+		//限定
+		if (l<0) l=0;
+		if (l>oDiv1.offsetWidth-oMask.offsetWidth) {
+			l=oDiv1.offsetWidth-oMask.offsetWidth;
+		}
+
+		if (t<0) t=0;
+		if (t>oDiv1.offsetWidth-oMask.offsetWidth) {
+			t=oDiv1.offsetHeight-oMask.offsetHeight;
+		}
+
+		//使用
+		oMask.style.left=l+'px';
+		oMask.style.top=t+'px';
+
+
+
+
+
+
+
+	}
+
+	
+};
+</script>
+</head>
+
+<body>
+	<div id="div1">
+		<img src="img/m1.jpg"/>
+		<div id="mask"></div>
+	</div>
+	<div id="div2">
+		<img src="img/b1.jpg">
+	</div>
+</body>
+</html>
