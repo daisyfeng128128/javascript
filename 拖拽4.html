@@ -6,46 +6,36 @@
 <style>
 *{ margin:0; padding:0; list-style:none; font-family: "微软雅黑","张海山锐线体简"}
 #div1{width:200px;height:200px;background:red; position:absolute;left:0;top:0;}
+#div2{width:200px;height:200px;background:red; position:absolute;left:300px;top:0;}
 </style>
 <script>
 window.onload=function(){
-	var oDiv=document.getElementById('div1');
+	drag('div1');
+	drag('div2');
+};
+
+function drag(id){
+	var oDiv=document.getElementById(id);
 	oDiv.onmousedown=function(ev){
 		var oEvt=ev||event;
 		var disX=oEvt.clientX-oDiv.offsetLeft;
 		var disY=oEvt.clientY-oDiv.offsetTop;
 		document.onmousemove=function(ev){
 			var oEvt=ev||event;
-			var l=oEvt.clientX-disX; //计算
-			var t=oEvt.clientY-disY; //计算
-
-			if (l<50) l=0;
-			if (t<50) t=0;
-			if (l>document.documentElement.clientWidth-oDiv.offsetWidth-50) {
-				l=document.documentElement.clientWidth-oDiv.offsetWidth;
-			}
-			if (t>document.documentElement.clientHeight-oDiv.offsetHeight-50) {
-				t=document.documentElement.clientHeight-oDiv.offsetHeight;
-			}
-			oDiv.style.left=l+'px';//使用
-			oDiv.style.top=t+'px';
-
+			oDiv.style.left=oEvt.clientX-disX+'px';
+			oDiv.style.top=oEvt.clientY-disY+'px';
 		}
 		document.onmouseup=function(){
 			document.onmousemove=document.onmouseup=null;//性能考虑
+			oDiv.releaseCapture&&oDiv.releaseCapture();
 		}
-		if(oDiv.setCapture){
-			oDiv.setCapture();	//事件截获
-		}
+
+		oDiv.setCapture&& oDiv.setCapture();	//事件截获
+		
 		return false; //阻止默认
 		
 	}
-
-			
-	
-	
-	
-};
+}
 </script>
 </head>
 
@@ -56,6 +46,10 @@ window.onload=function(){
 	<img src="img/a3.png"/>
 	11111
 </div>
-
+<div id="div2">
+	00000
+	<img src="img/a3.png"/>
+	11111
+</div>
 </body>
 </html>

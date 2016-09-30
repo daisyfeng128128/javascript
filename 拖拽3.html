@@ -8,7 +8,9 @@
 #div1{width:200px;height:200px;background:red; position:absolute;left:0;top:0;}
 </style>
 <script>
-window.onload=function(){
+window.onload=drag;
+
+function drag(){
 	var oDiv=document.getElementById('div1');
 	oDiv.onmousedown=function(ev){
 		var oEvt=ev||event;
@@ -16,36 +18,20 @@ window.onload=function(){
 		var disY=oEvt.clientY-oDiv.offsetTop;
 		document.onmousemove=function(ev){
 			var oEvt=ev||event;
-			var l=oEvt.clientX-disX; //计算
-			var t=oEvt.clientY-disY; //计算
-
-			if (l<50) l=0;
-			if (t<50) t=0;
-			if (l>document.documentElement.clientWidth-oDiv.offsetWidth-50) {
-				l=document.documentElement.clientWidth-oDiv.offsetWidth;
-			}
-			if (t>document.documentElement.clientHeight-oDiv.offsetHeight-50) {
-				t=document.documentElement.clientHeight-oDiv.offsetHeight;
-			}
-			oDiv.style.left=l+'px';//使用
-			oDiv.style.top=t+'px';
-
+			oDiv.style.left=oEvt.clientX-disX+'px';
+			oDiv.style.top=oEvt.clientY-disY+'px';
 		}
 		document.onmouseup=function(){
 			document.onmousemove=document.onmouseup=null;//性能考虑
+			oDiv.releaseCapture&&oDiv.releaseCapture();
 		}
-		if(oDiv.setCapture){
-			oDiv.setCapture();	//事件截获
-		}
+
+		oDiv.setCapture&& oDiv.setCapture();	//事件截获
+		
 		return false; //阻止默认
 		
 	}
-
-			
-	
-	
-	
-};
+}
 </script>
 </head>
 
@@ -56,6 +42,5 @@ window.onload=function(){
 	<img src="img/a3.png"/>
 	11111
 </div>
-
 </body>
 </html>

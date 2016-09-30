@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>拖拽</title>
+<style>
+*{ margin:0; padding:0; list-style:none; font-family: "微软雅黑","张海山锐线体简"}
+#div1{width:200px;height:200px;background:red; position:absolute;left:0;top:0;}
+</style>
+<script>
+window.onload=function(){
+	document.onclick=function(){
+		console.log('click');
+	};
+	document.onmousedown=function(){
+		console.log('down');
+	};
+	document.onmouseup=function(){
+		console.log('up');
+	};
+	document.onmousemove=function(){
+		console.log('move');
+	};
+	
+};
+</script>
+</head>
+
+<body>
+	<div id="div1"></div>
+</body>
+</html>
