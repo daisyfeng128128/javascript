@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>document</title>
+
+</head>
+<body>
+	<form>
+		<input type="text" id="username" name="">
+	</form>
+	<button id="btn" onclick="safe()">按钮</button>
+	<script>
+		function safe(){
+			var name=document.getElementById("username").value;
+			if (name=="hello") {
+				history.go(-1);
+			}else{
+				alert('输入错误');
+			}
+			
+		}
+	</script>
+</body>
+</html>

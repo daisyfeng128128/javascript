@@ -10,3 +10,8 @@ ctrl+g		光标到第n行
 2）css排序
 css属性的顺序一般不重要，因为无论何种浏览器都能正确渲染，但排序所有的属性还是有助于代码的整洁。
 在ST中，选中CSS属性后按F5就可按字母排序
+
+ctrl+shift+p -->set syntax HTMl设置html文件格式
+
+Alt+Shift+n 分成n屏
+alt+shift+d 复制当前行到下一行
