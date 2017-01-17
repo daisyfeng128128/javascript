@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin:0; padding:0; list-style: none; }
+		#ul1{position: relative; width: 480px; height: 260px; background-color: #ccc; margin:100px auto;}
+		#ul1 li{
+			position: absolute;
+			left: 0;
+			top: 0;
+			-opacity: 0;
+			transform: perspective(800px) rotateY(0deg);
+			
+		}
+		#ul1 li.l2{
+			opacity: 1;
+			transform: perspective(800px)
+			translateX(-300px) rotateY(45deg);
+			z-index: 1;
+		}
+		#ul1 li.l1{
+			opacity: 1;
+			transform: perspective(800px)
+			translateX(-200px) rotateY(45deg);
+			z-index: 3;
+		}
+		#ul1 li.cur{
+			opacity: 1;
+			z-index: 5;
+		}
+		#ul1 li.r1{
+			opacity: 1;
+			transform: perspective(800px)
+			translateX(200px) rotateY(-45deg);
+			z-index: 3;
+		}
+		#ul1 li.r2{
+			opacity: 1;
+			transform: perspective(800px)
+			translateX(300px) rotateY(-45deg);
+			z-index: 1;
+		}
+
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var oBtnNext = document.getElementById("btn_next");
+			var oUl = document.getElementById("ul1");
+			var aLi = oUl.children;
+			var len = aLi.length;
+
+			var iNow = 2;
+			oBtnNext.onclick=function(){
+				iNow++;
+				for (var i = 0; i < len; i++) {
+					aLi[i].className='';	
+				}
+				aLi[(iNow-2)%len].className="l2";
+				aLi[(iNow-1)%len].className="l1";
+				aLi[(iNow%len)].className="cur"
+				aLi[(iNow+2)%len].className="r1";
+				aLi[(iNow+2)%len].className="r2";
+			}
+
+
+		}
+	</script>
+</head>
+<body>
+	<input id="btn_next" type="button" value="下一张"/>
+	<ul id="ul1">
+		<li class="l2"><img src="img1/1.jpg" alt=""></li>
+		<li class="l1"><img src="img1/2.jpg" alt=""></li>
+		<li class="cur"><img src="img1/3.jpg" alt=""></li>
+		<li class="r1"><img src="img1/4.jpg" alt=""></li>
+		<li class="r2"><img src="img1/5.jpg" alt=""></li>
+		<li><img src="img1/6.jpg" alt=""></li>
+		<li><img src="img1/7.jpg" alt=""></li>
+		<li><img src="img1/8.jpg" alt=""></li>
+		<li><img src="img1/9.jpg" alt=""></li>
+		<li><img src="img1/10.jpg" alt=""></li>
+		<li><img src="img1/11.jpg" alt=""></li>
+		<li><img src="img1/12.jpg" alt=""></li>
+	</ul>
+</body>
+</html>

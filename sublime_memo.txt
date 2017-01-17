@@ -15,3 +15,19 @@ ctrl+shift+p -->set syntax HTMl设置html文件格式
 
 Alt+Shift+n 分成n屏
 alt+shift+d 复制当前行到下一行
+
+ctrl+滚轮上下翻动  字体大小调整
+界面右边：是代码地图，通过点击相应的区域，便可进入相应部分
+按ctrl键，然后点多个地方，就可同时进行操作
+
+将next改为cb,在任何一个next上双击一下选中，其他next上也被打了虚线框，
+然后按alt+f3,这样便可选中这个页面里所有的next,然后输入cb,这样就完成了这个页面next的替换
+
+package control：sublime text用其安装插件
+
+安装一个扩展，这个扩展使用的sftp协议：本地文件同步到linux服务器上
+安装sftp
+
+div -tab键   补全标签
+div#main -tab	连着id一起补全
+div#head>p*6 -tab 6个子集也出来了
