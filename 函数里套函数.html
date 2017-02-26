@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		window.onload=function(){
+			var oBtn=document.getElementById("btn");
+
+			function fn1(){
+				alert(this)
+			}
+
+			oBtn.onclick=fn1;
+			oBtn.onclick=function(){
+				alert(this)
+				//fn1();
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="button" value="按钮" id="btn">
+</body>
+</html>

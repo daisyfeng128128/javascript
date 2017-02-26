@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div{
+			width: 50px;
+			height: 50px;
+			background-color: red;
+			color: #fff;
+			text-align: center;
+			line-height: 50px; 
+			position: absolute;
+			left: 0;
+			top: 0; 
+		}
+	</style>
+	<script>
+		window.onload=function(){
+			var aDiv=document.getElementsByTagName('div');
+			var str="";
+			for (var i = 0; i < 10; i++) {
+				str+='<div>'+i+'</div>';
+				
+			}
+			document.body.innerHTML=str;
+			for (var i = 0; i < aDiv.length; i++) {
+				aDiv[i].style.left+=10+i*50+'px';
+				aDiv[i].style.top+=10+i*50+'px';
+			}
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

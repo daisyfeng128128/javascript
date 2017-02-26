@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>date</title>
+	<script type="text/javascript">
+		function employee(name,job,born){
+			this.name=name;
+			this.job=job;
+			this.born=born;
+		}
+
+		var bill=new employee('bill gates','engineer',1985);
+		employee.prototype.salary = null;
+		bill.salary=20000;
+		document.write(bill.salary)
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

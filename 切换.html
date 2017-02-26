@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		window.onload=function(){
+			var oBtn=document.getElementById('tBtn');
+			
+			oBtn.onclick=function(){
+				if (oBtn.value==0) {
+					oBtn.value=1;
+				} else {
+					oBtn.value=0;
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="button" id="tBtn" value="0">
+</body>
+</html>

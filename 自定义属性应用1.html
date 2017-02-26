@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		li{
+			width: 106px;
+			height: 134px;
+			background: url(img/normal.png);
+			float: left;
+			margin-right: 20px;
+			list-style: none;
+			cursor: pointer;
+
+		}
+	</style>
+
+	<script>
+		window.onload=function(){
+			var aLi=document.getElementsByTagName("li");
+
+			for (var i = 0; i < aLi.length; i++) {
+				aLi[i].onclick=function(){
+					this.style.background="url(img/active.png)"
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</body>
+</html>

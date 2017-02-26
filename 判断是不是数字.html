@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+	window.onload=function(){
+		var a=document.querySelector("#a"),
+			b=document.querySelector("#b");
+			b.onclick=function(){
+				if (isNaN(a.value)) {
+					alert('不是数字')
+				} else {
+					alert('是数字')
+				}
+			}
+	}
+		
+	</script>
+</head>
+<body>
+	<input type="text" id="a">
+	<input type="button" value="判断是否为数字" id="b">
+</body>
+</html>

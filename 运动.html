@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#div1{
+			width:200px;
+			height: 200px; 
+			background-color: #ccc;
+			position: absolute;
+			left: 0;
+			top: 50px;
+
+		}
+		.box{
+			width: 32px;
+			height: 32px;
+			background-color: #ccc;
+			position: absolute;
+			border: 1px solid black;
+			border-radius: 50%;
+			margin-left:-17px; 
+			margin-top:-17px; 
+		}
+	</style>
+	<script>
+		function d2a(n){
+			return n*Math.PI/180;
+		}
+		function a2d(n){
+			return n*180/Math.PI;
+		}
+
+		window.onload=function(){
+			var N=20;
+
+			var cx=400,cy=300;
+			var r=200;
+
+			for(var i=0; i<N; i++) {
+				var oDiv=document.createElement('div');
+				oDiv.className='box';
+
+				var ang=360*i/N;
+				console.log(ang)
+
+				oDiv.style.left=cx+Math.sin(d2a(ang))*r+'px';
+				oDiv.style.top=cy+Math.cos(d2a(ang))*r+'px';
+
+				document.body.appendChild(oDiv);
+			}
+			
+		}
+	</script>
+</head>
+<body>
+	<div id="div1"></div>
+</body>
+</html>

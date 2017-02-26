@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div{
+			width: 50px;
+			height: 50px;
+			background-color: red;
+			color: #fff;
+			text-align: center;
+			line-height: 50px; 
+			position: absolute;
+			left: 0;
+			top: 0; 
+		}
+	</style>
+	<script>
+		window.onload=function(){
+			/*var aDiv=document.getElementsByTagName('div');
+			var str="";
+			for (var i = 0; i < 20; i++) {
+				str+='<div>'+i+'</div>';
+				
+			}
+			document.body.innerHTML=str;
+			var len=aDiv.length;
+			for (var i = 0; i < len; i++) {
+				aDiv[i].style.left+=10+i*60+'px';
+				aDiv[(i+1)%10].style.top+=(i%10)*60+'px';
+			}*/
+			for(var i= 0,j= 0;i<100;i++){
+              var div = document.createElement("div");
+                  div.style.position = "absolute";
+                  div.style.width = "50px";
+                  div.style.height ="50px";
+                  div.style.left = ((i%10)*50+10)+"px";
+                  div.style.border= "1px solid #ddd";
+                  div.innerText = i;
+                  if(i%10==0){
+                      ++j;
+                  }
+              div.style.top = ((j-1)*50+10)+"px";
+ 
+                document.body.appendChild(div);
+          }
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

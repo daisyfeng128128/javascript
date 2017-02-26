@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		window.onload=function(){
+			var aBtn=document.getElementsByTagName("input");
+			var that=null;
+
+			function fn1(){
+				this.style.background="blue";
+			}
+
+			for (var i = 0; i < aBtn.length; i++) {
+				
+				aBtn[i].onclick=fn1;
+			}
+			
+		}
+	</script>
+</head>
+<body>
+	<input type="button" value="按钮1" >
+	<input type="button" value="按钮2" >
+	<input type="button" value="按钮3" >
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		window.onload=function(){
+			var oUl=document.getElementById('box');
+			var aUl=oUl.getElementsByTagName('ul');
+			var len=aUl.length;
+			var aLi=null;
+			console.log('start')
+			for (var i = 0; i < len; i++) {
+				aLi=aUl[i].getElementsByTagName('li');
+				for (var j = 0; j < aLi.length; j++) {
+					aLi[j].style.border="1px solid red";
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<ul id="box">
+		<li>
+			<h2>我的好友</h2>
+			<ul class="son">
+				<li>好友1</li>
+				<li>好友2</li>
+				<li>好友3</li>
+			</ul>
+		</li>
+		<li>
+			<h2>我的同学</h2>
+			<ul class="son">
+				<li>同学1</li>
+				<li>同学2</li>
+				<li>同学3</li>
+			</ul>
+		</li>
+		<li>nnnnnnn</li>
+		<li>nnnnnnn</li>
+		<li>
+			<h2>我的同事</h2>
+			<ul class="son">
+				<li>同事1</li>
+				<li>同事2</li>
+				<li>同事3</li>
+			</ul>
+		</li>
+	</ul>
+</body>
+</html>

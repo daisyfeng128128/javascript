@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+			list-style: none;
+		}
+		body{
+			background: #333;
+		}
+		.box{
+			width: 400px;
+			height: 500px;
+			position: relative;
+			margin-right:150px;
+			float: left;
+			background: url(img/loader_ico.gif) no-repeat center #fff;
+		}
+		.box img{
+			width: 400px;
+			height: 500px;
+		}
+		.box ul{
+			width: 40px;
+			position: absolute;
+			top: 0;
+			right: -110px;
+		}
+		.box li{
+			width: 40px;
+			height: 40px;
+			margin-bottom: 4px;
+			background-color: #666;
+			cursor: pointer;
+		}
+		.box .active{
+			background: #fC3;
+		}
+		.box span{
+			top: 0;
+		}
+		.box p{
+			bottom: 0;
+		}
+		.box p,.box span{
+			position: absolute;
+			left: 0;
+			width: 400px;
+			height: 30px;
+			line-height: 30px;
+			text-align: center;
+			color: #fff;
+			background-color: #000;
+		}
+	</style>
+
+
+	<script>
+		window.onload=function(){
+			tabF("pic1",["img/1.png","img/2.png","img/3.png","img/4.png"],["图片1","图片2","图片3","图片4"],"onclick");
+			tabF("pic2",["img/1.png","img/2.png","img/3.png"],["图片1","图片2","图片3"],"onmouseover");
+		}
+
+		function tabF(id,url,picInfo,evt){
+			var oDiv=document.getElementById(id);
+			var oImg=oDiv.getElementsByTagName("img")[0];
+			var oSpan=oDiv.getElementsByTagName("span")[0];
+			var aP=oDiv.getElementsByTagName("p")[0];
+			var oUl=oDiv.getElementsByTagName("ul")[0];
+			var aLi=oUl.getElementsByTagName("li");
+			var num=0;
+
+			for (var i = 0; i < url.length; i++) {
+				oUl.innerHTML+="<li></li>"
+			}
+
+			tabFn();
+
+			function tabFn(){
+				oSpan.innerHTML=1+num+"/"+url.length;
+				oImg.src=url[num];
+				aP.innerHTML=picInfo[num];
+				for (var i = 0; i < url.length; i++) {
+					aLi[i].className="";
+				}
+				aLi[num].className="active";
+			}
+			
+
+			for (var i = 0; i < url.length; i++) {
+				aLi[i].index=i;
+				aLi[i][evt]=function(){
+					num=this.index;
+					tabFn()
+				}
+			}
+
+		}
+	</script>
+</head>
+<body>
+	<div id="pic1" class="box">
+		<img src=""/>
+		<span>数量正在加载中。。</span>
+		<p>文字说明正在加载中。。</p>
+		<ul>
+		</ul>
+	</div>
+	<div id="pic2" class="box">
+		<img src=""/>
+		<span>数量正在加载中。。</span>
+		<p>文字说明正在加载中。。</p>
+		<ul>
+		</ul>
+	</div>
+</body>
+</html>

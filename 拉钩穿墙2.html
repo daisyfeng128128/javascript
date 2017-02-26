@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#div1{
+			width: 200px;
+			height: 200px;
+			margin:100px auto;
+			background-color: #ccc;
+		}
+		.box{
+			width: 2px;
+			height: 2px;
+			background-color: black;
+			position: absolute;
+		}
+	</style>
+	<script>
+		window.onload=function(){
+			var oDiv=document.getElementById('div1');
+
+			var lastX,lastY;
+			//前一次的鼠标坐标
+
+			document.onmousemove=function(ev){
+				var oEvent=ev||event;
+
+				lastX=oEvent.clientX;
+				lastY=oEvent.clientY;
+
+			};
+
+			//移入之前的最后一次的坐标
+			oDiv.onmouseover=function(){
+				var oBox=document.createElement('div');
+				oBox.className='box';
+
+				oBox.style.left=lastX+'px';
+				oBox.style.top=lastY+'px';
+
+				document.body.appendChild(oBox);
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="div1"></div>
+</body>
+</html>

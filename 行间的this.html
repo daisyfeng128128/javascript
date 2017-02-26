@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="button" value="按钮" id="btn">
+	<!-- <input type="button" value="按钮2" onclick="alert(this)" id="btn2"> -->
+	<input type="button" value="按钮2" onclick="fn1()" id="btn2">
+
+	<script>
+			var oBtn=document.getElementById("btn");
+
+			function fn1(){
+				alert(this)
+			}
+
+			oBtn.onclick=function(){
+				alert(this)
+				//fn1();
+			}
+	</script>
+</body>
+</html>

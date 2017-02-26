@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin: 0; padding:0; }
+		.fl{ float:left; }
+		.fr{ float:right;}
+		.clearFix:after{ content:''; display:block; clear:both; }
+		.left,.right{width: 100px; background: #ccc; }
+		.center{
+			background: #0f0;
+		}
+		
+	</style>
+</head>
+<body>
+	<!-- 1、三列布局、中间宽度自适应、两边定宽
+	2、中间栏要在浏览器中优先展示渲染 -->
+	<div id="container clearFix">
+		<div class="center fl">中</div>
+		<div class="left fl">左</div>
+		<div class="right fl">右</div>
+	</div>
+	
+</body>
+</html>

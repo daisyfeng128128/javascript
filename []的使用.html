@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#div1{
+			width: 200px;
+			height: 200px;
+			border: 10px solid red;
+		}
+	</style>
+	<script>
+		window.onload=function(){
+			var oT1=document.getElementById("t1");
+			var oT2=document.getElementById("t2");
+			var oBtn=document.getElementById("tBtn");
+			var oDiv=document.getElementById("div1");
+
+			oBtn.onclick=function(){
+				oDiv.style[oT1.value]=oT2.value;
+			}
+		}
+	</script>
+</head>
+<body>
+	属性名：<input type="text" id="t1">
+	属性值：<input type="text" id="t2">
+	<input type="button" id="tBtn" value="确定">
+	<div id="div1"></div>
+</body>
+</html>

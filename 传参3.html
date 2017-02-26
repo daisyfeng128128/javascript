@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+	fn(100);
+	fn("abc");
+	fn(function(){alert(1)})
+
+	function fn(a){
+		if (typeof a === "number" && a===a) {
+			alert(a+10)
+		}else if (typeof a === "string") {
+			alert(a.charAt(0))
+		}else if (typeof a === "function") {
+			a()
+		}
+	}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

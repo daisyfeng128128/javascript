@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		li{
+			width: 106px;
+			height: 134px;
+			background: url(img/normal.png);
+			float: left;
+			margin-right: 20px;
+			list-style: none;
+			cursor: pointer;
+
+		}
+	</style>
+
+	<script>
+		window.onload=function(){
+			var aIpt=document.getElementsByTagName("input");
+
+			for (var i = 0; i < aIpt.length; i++) {
+
+				aIpt[i].index=i;
+				aIpt[i].onclick=function(){
+					alert(this.index)
+					
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="button" value="aBtn1">
+	<input type="button" value="aBtn2">
+	<input type="button" value="aBtn3">
+</body>
+</html>
