@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin:0; padding: 0; }
+		input{width:50px; height:30px; cursor: pointer;
+			 background-color: #ccc; position:absolute; left: 30px; top: 10px;}
+		div{width:100px; height: 100px; background-color: #f6c; position: absolute; left: 30px; top: 50px; }
+	</style>
+	<script>
+		window.onload=function(){
+			var oBtn=document.getElementById('btn'),
+			    oBox=document.getElementById('box'),
+			    timer=null;
+
+			    oBtn.onclick=function(){
+
+			    	timer=setInterval(function(){
+			    		var speed=parseInt(getStyle(oBox,"left"))+19;
+				    	if (speed>800) {
+				    		speed=800;
+				    	}
+				    	if (speed==800) {
+				    		clearInterval(timer);
+				    		alert(speed)
+				    	}
+
+			    		oBox.style.left=speed+"px";
+			    	},40)
+			    	
+			    }
+
+		}
+
+		function getStyle(obj,attr){
+			return obj.currentStyle ? obj.currentStyle[attr] : getComputedStyle(obj)[attr];
+
+		}
+	</script>
+</head>
+<body>
+	<input type="button" value="按钮" id="btn">
+	<div id="box"></div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.red{background: red; }
+		.ccc{background: #ccc; }
+		.f0f{background: #f0f; }
+	</style>
+	<script>
+		window.onload=function(){
+			var oUl=document.getElementById("list");
+			var aLi=oUl.getElementsByTagName("li");
+
+			for (var i = 0; i < aLi.length; i++) {
+				if (i%3==0) {
+					aLi[i].className="red";
+				}else if(i%3==1){
+					aLi[i].className="ccc";
+				}else if (i%3==2) {
+					aLi[i].className="f0f";
+				}
+			}
+
+
+
+		}
+		
+	</script>
+</head>
+<body>
+	<ul id="list">
+		<li></li>
+		<li></li>
+		<li></li><li></li>
+		<li></li>
+		<li></li><li></li>
+		<li></li>
+		<li></li><li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</body>
+</html>

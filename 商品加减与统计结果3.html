@@ -1,0 +1,103 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<script>
+	window.onload=function(){
+		var oUl=document.getElementById("list"),
+		    oItem=document.getElementById("items"),
+			aLi=oUl.getElementsByTagName("li"),
+			aStrong=oUl.getElementsByTagName("strong"),
+			items=0,
+			aSpan=oUl.getElementsByTagName("span");
+
+			for (var i = 0; i < aLi.length; i++) {
+				cal(aLi[i]);
+			}
+
+			function cal(oLi){
+				var aBtn=oLi.getElementsByTagName("input"),
+					oStrong=oLi.getElementsByTagName("strong")[0],
+					oEm=oLi.getElementsByTagName("em")[0],
+					oSpan=oLi.getElementsByTagName("span")[0],
+					n1=Number(oStrong.innerHTML),
+					n2=parseFloat(oEm.innerHTML);
+
+				aBtn[1].onclick=function(){
+					n1++;
+					items++;
+					oStrong.innerHTML=n1;
+					oSpan.innerHTML=n1*n2+"元";
+					sum=(n1*n2);
+					oItem.innerHTML="商品合计共："+items+"件，共花费了："+sum+"元<br />其中最贵的商品单价是：0元"
+				}
+				aBtn[0].onclick=function(){
+					if (n1<=0) {
+						n1=0;
+					}else{
+						n1--;
+						items--;
+						sum-=n1*n2;
+					}
+					
+					oStrong.innerHTML=n1;
+					oSpan.innerHTML=n1*n2+"元";
+					oItem.innerHTML="商品合计共："+items+"件，共花费了："+sum+"元<br />其中最贵的商品单价是：0元"
+				}
+			}
+		
+	}
+	
+</script>
+</head>
+
+<body>
+
+<ul id="list">
+	<li>
+  	<input type="button" value="-" />
+    <strong>0</strong>
+  	<input type="button" value="+" />
+    单价：<em>12.5元</em>
+    小计：<span>0元</span>
+  </li>
+	<li>
+  	<input type="button" value="-" />
+    <strong>0</strong>
+  	<input type="button" value="+" />
+    单价：<em>10.5元</em>
+    小计：<span>0元</span>
+  </li>
+	<li>
+  	<input type="button" value="-" />
+    <strong>0</strong>
+  	<input type="button" value="+" />
+    单价：<em>8.5元</em>
+    小计：<span>0元</span>
+  </li>
+	<li>
+  	<input type="button" value="-" />
+    <strong>0</strong>
+  	<input type="button" value="+" />
+    单价：<em>8元</em>
+    小计：<span>0元</span>
+  </li>
+	<li>
+  	<input type="button" value="-" />
+    <strong>0</strong>
+  	<input type="button" value="+" />
+    单价：<em>14.5元</em>
+    小计：<span>0元</span>
+  </li>
+</ul>
+
+<p id="items">
+商品合计共：0件，
+共花费了：0元<br />
+其中最贵的商品单价是：0元
+</p>
+
+
+</body>
+</html>

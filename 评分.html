@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin:0;padding:0;}
+		#pingfen{ width:135px;margin:10px auto;height:28px;}
+		#pingfen li{ width:27px;float:left;height:28px; cursor:pointer;background:url(img/star.gif) no-repeat 0 0; list-style:none;}
+	</style>
+	<script>
+		window.onload=function(){
+			var oBox=document.getElementById('pingfen'),
+				aLi=oBox.getElementsByTagName('li');
+
+			for (var i = 0; i < aLi.length; i++) {
+				aLi[i].index=i;
+				aLi[i].onmouseover=function(){
+					for (var i = 0; i < aLi.length; i++) {
+						if (i<=this.index) {
+							aLi[i].style.backgroundPosition="0 -30px";	
+						}else{
+							aLi[i].style.backgroundPosition="0 0";	
+						}
+					}
+				}
+
+				aLi[i].onclick=function(){
+					for (var i = 0; i < aLi.length; i++) {
+						aLi[i].onmouseover=null;
+						
+					}
+				}
+
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="pingfen">
+		<ul>
+	    	<li></li>
+	        <li></li>
+	        <li></li>
+	        <li></li>
+	        <li></li>
+	    </ul>
+	</div>
+</body>
+</html>

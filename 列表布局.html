@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<style>
+*{ margin:0; padding:0; list-style:none; }
+
+ul{ width:480px; margin:40px auto; }
+
+li .img{ display:none; }
+
+/*留给js用*/
+.on .img{ display:block; }
+.on .txt{ display:none; }
+ul{background:yellow; }
+</style>
+<script>
+	window.onload=function(){
+		var oUl=document.getElementById('list'),
+			aLi=oUl.getElementsByTagName('li');
+
+			for (var i = 0; i < aLi.length; i++) {
+				aLi[i].onmouseover=function(){
+					for (var i = 0; i < aLi.length; i++) {
+						aLi[i].className="";
+					}
+					this.className="on";
+				}
+			}
+
+	}
+</script>
+</head>
+
+<body>
+	<ul id="list">
+		<li >
+			<div class="txt">1111111文字文字文字文字</div>
+			<div class="img">
+				<img src="img/12.jpg" alt="" />
+			</div>
+		</li>
+		<li class="on">
+			<div class="txt">2222222文字文字文字文字</div>
+			<div class="img">
+				<img src="img/12.jpg" alt="" />
+			</div>
+		</li>
+		<li>
+			<div class="txt">3333333文字文字文字文字</div>
+			<div class="img">
+				<img src="img/12.jpg" alt="" />
+			</div>
+		</li>
+		<li>
+			<div class="txt">44444444文字文字文字文字</div>
+			<div class="img">
+				<img src="img/12.jpg" alt="" />
+			</div>
+		</li>
+		<li>
+			<div class="txt">55555555文字文字文字文字</div>
+			<div class="img">
+				<img src="img/12.jpg" alt="" />
+			</div>
+		</li>
+		<li>
+			<div class="txt">66666666文字文字文字文字</div>
+			<div class="img">
+				<img src="img/12.jpg" alt="" />
+			</div>
+		</li>
+		<li>
+			<div class="txt">77777777文字文字文字文字</div>
+			<div class="img">
+				<img src="img/12.jpg" alt="" />
+			</div>
+		</li>
+	</ul>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

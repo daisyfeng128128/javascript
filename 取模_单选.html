@@ -1,0 +1,48 @@
+<html>
+<head>
+<script>    
+	window.onload=function(){        
+		var oLi=document.getElementsByTagName('li');        
+		var arr=['red','yellow'];        
+		var str='';        
+		for(var i=0;i<oLi.length;i++){            
+			oLi[i].style.backgroundColor=arr[i%arr.length];            
+			oLi[i].onmouseover=function(){                
+				if(this.style.backgroundColor!='black'){
+					//判断当前色为黑色则不响应onmouseover                {                
+					str=this.style.backgroundColor;                
+					this.style.backgroundColor='gray';
+				}     
+			}    
+
+			oLi[i].onclick=function(){                
+				window.onload();
+				//首先还原其他行改变过的颜色                
+				this.style.backgroundColor='black';//设置本行为黑色            
+			}      
+
+			oLi[i].onmouseout=function(){            
+				if(this.style.backgroundColor!='black')
+				//判断当前色为黑色则不响应onmouseout                
+				this.style.backgroundColor=str;            
+			}  
+		      
+		}    
+	}
+</script>
+</head>
+<body>
+	<ul>    
+		<li></li>    
+		<li></li>    
+		<li></li>    
+		<li></li>    
+		<li></li>    
+		<li></li>    
+		<li></li>    
+		<li></li>    
+		<li></li>    
+		<li></li>
+	</ul>
+</body>
+</html>

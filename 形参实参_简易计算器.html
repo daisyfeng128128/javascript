@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		alert(fn(1,2,3,"+"));	//6
+		alert(fn(10,2,3,4,"-"));	//1
+
+		function fn(){
+			var sum=0;
+			for (var i = 0; i < arguments.length-1; i++) {
+				if (arguments[arguments.length-1]==="+") {
+					sum+=arguments[i]
+				}else if (arguments[arguments.length-1]==="-") {
+					sum=arguments[0];
+					sum-=arguments[i];  //怎样实现数组内值相减
+				}
+				
+			}
+			return sum;
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>封</title>
+	<style type="text/css">
+		*{margin:0; padding: 0; list-style: none; }
+		body{
+			background-color: black; 
+		}
+		#box{
+			width:800px;
+			height: 403px;
+			background-color: #ccc;
+			margin: 40px auto; 
+		}
+		.fl{float: left; }
+		.fr{float: right; }
+		.clearFix:after{content: ""; clear:both; display: block; }
+		.l{width:200px;height: 403px;  background-color: pink; }
+		.r{width: 600px; height: 403px; background-color: #0f0; }
+		.l li{
+			height: 100px; 
+			border-bottom: 1px solid #0ff; 
+			cursor: pointer; 
+		}
+		.on{background-color: #fff; }
+		#b,#none{border: none; }
+		.r li{display: none; position: relative; height: 403px; }
+		.cur{display:block !important;}
+		.r li .secH{position: absolute; left: 0; bottom:0; width: 600px; height: 50px; background-color: #f0f; padding:2px 0;}
+		.secH div{width: 198px; height:50px; border-right: 1px solid red; cursor: pointer; float: left;}
+		.secB{width:600px; height: 403px; background-color: blue; }
+		.secB div{display: none; } 
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var oBox=document.getElementById("box"),
+			 	oL=document.getElementById("l"),
+				oR=document.getElementById("r"),
+				aLi=oL.getElementsByTagName('li'),
+				aRi=oR.getElementsByTagName('li'),
+
+				aSeLi=aRi[0].getElementsByClassName("secH")[0].getElementsByTagName("div"),
+				aSeBi=aRi[0].getElementsByClassName("secB")[0].getElementsByTagName("div");
+
+			tab(aLi,aRi);
+			tab(aSeLi,aSeBi);
+			function tab(hd,bd){
+				for (var i = 0; i < hd.length; i++) {
+					hd[i].index=i;
+					hd[i].onclick=function(){
+						for (var i = 0; i < hd.length; i++) {
+							hd[i].className="";
+							bd[i].className="";
+						}
+						this.className="on";
+						bd[this.index].className="cur";
+					}
+				}
+			}
+
+			
+		}
+	</script>
+</head>
+<body>
+	<div id="box" class="clearFix">
+		<ul class="l fl" id="l">
+			<li class="on"></li>
+			<li></li>
+			<li></li>
+			<li id="b"></li>
+		</ul>
+		<ul class="r fl" id="r">
+			<li class="cur">
+				<div class="secH clearFix">
+					<div class="on">01</div>
+					<div class="">02</div>
+					<div class="" id="none">03</div>
+				</div>
+				<div class="secB clearFix">
+					<div class="cur">01</div>
+					<div class="">02</div>
+					<div class="" id="none">03</div>
+				</div>
+			</li>
+			<li class="">
+				<div class="secH clearFix">
+					<div class="on">01</div>
+					<div class="">02</div>
+					<div class="" id="none">03</div>
+				</div>
+				<div class="secB clearFix">
+					<div class="cur">01</div>
+					<div class="">02</div>
+					<div class="" id="none">03</div>
+				</div>
+			</li>
+			<li>3</li>
+			<li>4</li>
+		</ul>
+	</div>
+</body>
+</html>

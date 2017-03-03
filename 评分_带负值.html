@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin:0;padding:0;}
+		#pingfen{ width:330px;margin:10px auto;height:28px;}
+		#pingfen li{ width:27px;float:left;height:28px; cursor:pointer;background:url(img/star.gif) no-repeat 0 0; list-style:none;}
+		#pingfen li.active{background-position: 0 -30px; }
+	</style>
+	<script>
+		window.onload=function(){
+
+			var oBox=document.getElementById('pingfen'),
+			 	oScore=document.getElementById('score'),
+				aLi=oBox.getElementsByTagName('li');
+
+			for (var i = 0; i < aLi.length; i++) {
+				aLi[i].index=i;
+				aLi[i].onmouseover=function(){
+					for (var i = 0; i < aLi.length; i++) {
+						if (i<=this.index&&i>5) {
+							aLi[i].className="active";
+							oScore.innerHTML=this.index-5+"分";
+						}else if (i>=this.index&&i<5) {
+							aLi[i].className="active";
+							oScore.innerHTML=this.index-5+"分";
+						}else{ 
+							aLi[i].className="";	
+						}
+					}
+				}
+
+				aLi[i].onclick=function(){
+					for (var i = 0; i < aLi.length; i++) {
+						aLi[i].onmouseover=null;
+						
+					}
+				}
+
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="pingfen">
+		<ul>
+	    	<li></li>
+	        <li></li>
+	        <li></li>
+	        <li></li>
+	        <li></li>
+	        <li class="active"></li>
+	        <li></li>
+	        <li></li>
+	        <li></li>
+	        <li></li>
+	        <li></li>
+	    </ul>
+	    <span id="score"></span>
+	</div>
+</body>
+</html>

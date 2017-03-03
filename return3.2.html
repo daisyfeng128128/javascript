@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		//alert(fn1(5)); //[1,2,3,4,5]
+		//alert(fn1(7)); //[1,2,3,4,5,6,7]
+		
+		function fn1(n) {
+			var arr=[];
+			for (var i = 1; i <= n; i++) {
+				arr.push(i)
+			}
+			return arr;
+		}
+
+		//alert(fn2(2,5));	//[2,3,4,5]
+		//alert(fn2(6,2));	//[2,3,4,5,6]
+
+		function fn2(a,b){
+			var arr=[];
+			if (a>b) {
+				for (var i =b; i <= a; i++) {
+					arr.push(i)
+				}
+				arr.sort(function(b,a){return b-a});
+				return arr;
+			}if (b>a) {
+				for (var i = a; i <= b; i++) {
+					arr.push(i)
+				}
+				arr.sort(function(a,b){return a-b});
+				return arr;
+			}
+			
+		}
+
+		alert(fn4())
+		function fn4(){
+			return 123;
+			alert(520);
+		}
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		input{
+			display: none; 
+		}
+		input.active{
+			display: inline;
+		}
+		#con{
+			padding: 5px; 
+		}
+	</style>
+	<script>
+		window.onload=function(){
+			var oCon=document.getElementById('con'),
+			    oBtn1=document.getElementById('btn1'),
+				oBtn2=document.getElementById('btn2'),
+				oBtn3=document.getElementById('btn3'),
+				str="";
+				
+
+			oBtn1.onclick=function(){
+				str=oCon.innerHTML;
+				oCon.contentEditable=true;
+				oCon.focus();
+				oBtn1.className="";
+				oBtn2.className=oBtn3.className="active";
+				console.log(str)
+			}
+			oBtn2.onclick=function(){
+				oCon.contentEditable=false;
+				this.className="";
+				oBtn3.className="";
+				oBtn1.className="active";
+			}
+			oBtn3.onclick=function(){
+				oCon.contentEditable=false;
+				this.className="";
+				oBtn2.className="";
+				oBtn1.className="active";
+				oCon.innerHTML=str;
+			}
+		}
+	</script>
+
+</head>
+<body>
+	<span contenteditable="false" id="con">内容内容内容内容</span>
+	<input type="button" class="active" value="修改" id="btn1">
+	<input type="button" value="保存" id="btn2">
+	<input type="button" value="取消" id="btn3">
+
+</body>
+</html>

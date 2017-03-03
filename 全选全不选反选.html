@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		window.onload=function(){
+			var oBtn=document.getElementById("btn"),
+				oUl=document.getElementById("list"),
+				aIpt=oUl.getElementsByTagName("input"),
+				num=0;
+
+				oBtn.onclick=function(){
+			
+					if (num>0) {
+						for (var i = 0; i < aIpt.length; i++) {
+							aIpt[i].checked=false;
+							oBtn.checked=false;
+						}
+						num=0;
+					}else{
+						for (var i = 0; i < aIpt.length; i++) {
+							aIpt[i].checked=oBtn.checked;
+						}
+					}
+				}
+
+				for (var i = 0; i < aIpt.length; i++) {
+					aIpt[i].onclick=function(){
+						var count=0;
+						for (var i = 0; i < aIpt.length; i++) {
+							if (aIpt[i].checked==true) {
+								count++;
+								num=count;
+
+							}
+
+							if (count==aIpt.length) {
+								oBtn.indeterminate=false;
+								oBtn.checked=true;
+
+							}else if (count==0) {
+								oBtn.indeterminate=false;
+								oBtn.checked=false;
+							}else{
+								oBtn.indeterminate=true;
+							}
+						}
+
+					}
+				}
+
+		}
+	</script>
+</head>
+<body>
+	<input type="checkbox" id="btn" />
+	<hr>
+	<ul id="list">
+		<li><input type="checkbox" /></li>
+		<li><input type="checkbox" /></li>
+		<li><input type="checkbox" /></li>
+		<li><input type="checkbox" /></li>
+		<li><input type="checkbox" /></li>
+	</ul>
+</body>
+</html>

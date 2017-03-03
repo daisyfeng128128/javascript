@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script>
+		// for (var i = 0; i < 10; i++) {
+		// 	document.write(i)
+		// 	document.title=i;
+		// }   //循环瞬间跑完
+
+		var i=0;
+		function fn() {
+			document.title=i; 
+			i++;
+		}
+
+		setInterval(fn,1000)
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

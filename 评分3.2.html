@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin:0;padding:0;}
+		#pingfen{ width:270px;margin:10px auto;height:28px;}
+		#pingfen li{width:14px;float:left;height:28px; cursor:pointer;background:url(img/star.gif) no-repeat 0 0; list-style:none;}
+		#pingfen li.l{background-position:0 0; }
+		#pingfen li.r{ background-position:-14px 0; }
+		#pingfen li.l_active{ background-position:0 -28px; }
+		#pingfen li.r_active{ background-position:-14px -28px;}
+		#btn{display: none; }
+	</style>
+	<script>
+		window.onload=function(){
+			var oBox=document.getElementById('pingfen'),
+			 	oScore=document.getElementById('score'),
+			 	oBtn=document.getElementById('btn'),
+				aLi=oBox.getElementsByTagName('li');
+
+				oBtn.onclick=function(){
+					this.style.display="none";
+					oScore.innerHTML="0分"
+					for (var i = 0; i < aLi.length; i++) {
+						aLi[i].className=i%2==0?"l":"r";
+					}
+
+					for (var i = 0; i < aLi.length; i++) {
+					(function(index){
+						aLi[i].onmouseover=function(){
+							for (var i = 0; i < aLi.length; i++) {
+								if (i<=index) {
+									aLi[i].className=i%2==0?"l_active":"r_active";
+									oScore.innerHTML=index/2+0.5+"分";
+								}else{
+									aLi[i].className=i%2==0?"l":"r";
+								}
+							}
+						}
+
+						aLi[i].onclick=function(){
+							for (var i = 0; i < aLi.length; i++) {
+								aLi[i].onmouseover=null;
+								aLi[i].onclick=null;
+								oBtn.style.display="inline";
+								
+							}
+						}
+					})(i)
+
+				}
+				}
+
+			
+				for (var i = 0; i < aLi.length; i++) {
+					(function(index){
+						aLi[i].onmouseover=function(){
+							for (var i = 0; i < aLi.length; i++) {
+								if (i<=index) {
+									aLi[i].className=i%2==0?"l_active":"r_active";
+									oScore.innerHTML=index/2+0.5+"分";
+								}else{
+									aLi[i].className=i%2==0?"l":"r";
+								}
+							}
+						}
+
+						aLi[i].onclick=function(){
+							for (var i = 0; i < aLi.length; i++) {
+								aLi[i].onmouseover=null;
+								aLi[i].onclick=null;
+								oBtn.style.display="inline";
+								
+							}
+						}
+					})(i)
+
+				}
+
+
+			
+		}
+	</script>
+</head>
+<body>
+	<div id="pingfen">
+		<ul>
+	    	<li class="l"></li>
+	        <li class="r"></li>
+	        <li class="l"></li>
+	        <li class="r"></li>
+	        <li class="l"></li>
+	        <li class="r"></li>
+	        <li class="l"></li>
+	        <li class="r"></li>
+	        <li class="l"></li>
+	        <li class="r"></li>
+	    </ul>
+	    <span id="score"></span>
+	    <input type="button" value="重评" id="btn">
+	</div>
+</body>
+</html>

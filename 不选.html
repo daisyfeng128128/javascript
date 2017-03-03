@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		window.onload=function(){
+			var oBtn=document.getElementById("btn");
+			var oUl=document.getElementById("list");
+			var aIpt=oUl.getElementsByTagName("input");
+			var onOff=true;
+
+			oBtn.onclick=function(){
+				if (onOff) {
+					for (var i = 0; i < aIpt.length; i++) {
+						aIpt[i].checked=false;
+						onOff=false;
+					}	
+
+				}else{
+					for (var i = 0; i < aIpt.length; i++) {
+						aIpt[i].checked=true;
+						onOff=true;
+					}
+
+				}
+
+				
+			}
+
+		}
+	</script>
+</head>
+<body>
+	<input type="button" value="不选" id="btn" />
+	<ul id="list">
+		<li><input type="checkbox" checked="true" /></li>
+		<li><input type="checkbox" checked="true"/></li>
+		<li><input type="checkbox" checked="true" /></li>
+		<li><input type="checkbox" checked="true"/></li>
+		<li><input type="checkbox" checked="true"/></li>
+	</ul>
+
+</body>
+</html>

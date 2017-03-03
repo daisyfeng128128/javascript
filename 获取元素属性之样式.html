@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin:0; padding:0; }
+		#box{width:100px; height: 100px; background-color: red; }
+	</style>
+	<script>
+		$(function(){
+			$("btn").onclick=function(){
+				alert(getComputedStyle($("box")).width);
+				
+			}
+		})
+
+		function $(v){
+			if (typeof v === "function") {
+				window.onload=v;
+			}else if (typeof v === "string") {
+				return document.getElementById(v);
+			}else if (typeof v === "object") {
+				return v; 
+			}
+		}
+
+	</script>
+</head>
+<body>
+	<input type="button" id="btn" value="按钮">
+	<div id="box">123</div>
+</body>
+</html>

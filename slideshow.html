@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+* { padding: 0; margin: 0; }
+li { list-style: none; }
+body { background: #f7f7f7; }
+#slideShow { width: 168px; margin: 50px auto 0; }
+#slideShow h2 { height: 24px; line-height: 24px; padding: 0 10px; background: url(img/bg.gif) no-repeat; font-size: 12px; font-weight: normal; }
+#slideShow h2 a { text-decoration: none; color: #fff; }
+#slideShow h2 a:hover { text-decoration: underline; }
+#slideShow .title { float: left; }
+#slideShow .more { float: right; }
+#slideShow .wrap { border: 1px solid #d1d1d1; border-bottom: none; }
+#slideShow p { position: relative; z-index: 2; }
+#slideShow .up a { display: block; height: 22px; background: #efefef url(img/bg.gif) no-repeat 75px -40px; }
+#slideShow .up a:hover { background: #e4ebf2 url(img/bg.gif) no-repeat 75px -40px; }
+#slideShow .down a { display: block; height: 22px; background: #efefef url(img/bg.gif) no-repeat -78px -40px; }
+#slideShow .down a:hover { background: #e4ebf2 url(img/bg.gif) no-repeat -78px -40px; }
+#slideShow .content { height: 380px; overflow: hidden; position: relative; z-index: 1; }
+#slideShow ul { position: absolute; top: 0; left: 0; }
+#slideShow li { width: 166px; float: left; }
+#slideShow li img { display: block; }
+#slideShow .footer { height: 5px; overflow: hidden; background: url(img/bg.gif) no-repeat 0 -25px; }
+</style>
+<script>
+	window.onload=function(){
+			var oSlideShow=document.getElementById('slideShow');
+			var oContent=document.getElementById('content');
+			var oLi=oContent.getElementsByTagName('li')[0];
+			var	oUl=oSlideShow.getElementsByTagName('ul')[0];
+			var oBtn1=oSlideShow.getElementsByTagName('p')[0];
+			var oBtn2=oSlideShow.getElementsByTagName('p')[1];
+			var oSlideShowH= parseInt(getStyle(oSlideShow,'height'));
+			var oUlH= parseInt(getStyle(oUl,'height'));
+			var heg=oUlH-oSlideShowH
+			var now=0;
+			var timer=null;
+		
+			oBtn1.onclick=function(){
+				alert()
+				timer=setInterval(function(){
+					oUl.style.top--;
+				},1000)
+				
+			}	
+
+	function getStyle(obj,sName){
+		if(obj.currentStyle){
+			return	obj.currentStyle[sName];
+		}else{	
+			return getComputedStyle(obj,false)[sName];
+		}
+	}
+	
+
+	};
+</script>
+</head>
+
+<body>
+
+<div id="slideShow">
+    <h2>
+        <a class="title" href="javascript:;">电脑手机</a>
+        <a class="more" href="javascript:;">>>更多</a>
+    </h2>
+    <div class="wrap">
+        <p class="up"><a href="javascript:;"></a></p>
+        <div class="content" id="content">
+            <ul>
+                <li><img src="img/1.gif" longdesc="javascript:;" /></li>
+                <li><img src="img/2.gif" longdesc="javascript:;" /></li>
+                <li><img src="img/3.gif" longdesc="javascript:;" /></li>
+                <li><img src="img/4.gif" longdesc="javascript:;" /></li>
+                <li><img src="img/5.gif" longdesc="javascript:;" /></li>
+                <li><img src="img/6.gif" longdesc="javascript:;" /></li>
+                <li><img src="img/7.gif" longdesc="javascript:;" /></li>
+                <li><img src="img/8.gif" longdesc="javascript:;" /></li>
+            </ul>
+        </div>
+        <p class="down"><a href="javascript:;"></a></p>
+    </div>
+    <div class="footer"></div>
+</div>
+
+</body>
+</html>

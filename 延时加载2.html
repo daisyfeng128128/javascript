@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin:0;
+			padding: 0; 
+		}
+		div{float: left; }
+		#l{width:300px; height: 400px; background-color: #0f0; margin-right: 50px; }
+		#r{width:200px; height: 200px; background-color: #ccc; display: none; }
+	</style>
+	<script>
+		window.onload=function(){
+			var oL=document.getElementById("l"),
+				oR=document.getElementById("r"),
+				timer=null;
+
+			 oL.onmouseover=oR.onmouseover=show;
+			 oL.onmouseout=oR.onmouseout=hide;
+
+			 
+
+
+			 function show(){
+			 	clearTimeout(timer);
+			 	oR.style.display="block";
+			 }
+
+			 function hide(){
+			 	timer=setTimeout(function(){
+			 		oR.style.display="none";
+			 	},2000)
+			 	
+			 }
+		}
+
+	</script>
+</head>
+<body>
+	<div id="l"></div>
+	<div id="r"></div>
+</body>
+</html>
