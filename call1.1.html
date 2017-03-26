@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<script>
+//call函数下的一个方法,call方法第一个参数可改变函数执行过程中的内部this的指向
+function fn1() {
+	alert(this);
+}
+
+fn1.call(1);	//fn1下面的call和fn1()是一样的，call方法的含义就是调用函数
+//fn1() == fn1.call()
+</script>
+</head>
+
+<body>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+	*{margin:0; padding: 0; }
+	div{width:100px; height: 100px; background-color: red; position: absolute; }
+</style>
+<script>
+window.onload = function() {
+	
+	var oDiv = document.getElementById('div1'),
+	 l,t,r,b = false;
+
+	
+	setInterval(function(){
+		if (l) {
+			oDiv.style.left=oDiv.offsetLeft - 10 +'px';
+		}else if (t) {
+			oDiv.style.top=oDiv.offsetTop - 10 +'px';
+		}else if (r) {
+			oDiv.style.left=oDiv.offsetLeft + 10 +'px';
+		}else if (b) {
+			oDiv.style.top=oDiv.offsetTop + 10 +'px';
+		}
+	},50)
+
+	document.onkeydown = function(ev){
+		var oEvt = ev || event;
+			   
+		switch(oEvt.keyCode){
+			case 37: l = true; break;
+
+			case 38: t = true;	break;
+
+			case 39: r = true; break;
+
+			case 40: b = true; break;
+		}
+
+	}
+
+	document.onkeyup = function(ev){
+		var oEvt = ev || event;
+
+		switch(oEvt.keyCode){
+			case 37: l = false; break;
+
+			case 38: t = false;	break;
+
+			case 39: r = false; break;
+
+			case 40: b = false; break;
+		}
+
+	}
+
+}
+</script>
+</head>
+
+<body>
+	<div id="div1"></div>
+</body>
+</html>

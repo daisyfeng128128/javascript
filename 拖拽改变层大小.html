@@ -1,0 +1,105 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+#div1 {width: 100px; height: 100px; background: red; position: absolute; left: 500px; top: 200px;}
+</style>
+<script>
+window.onload = function() {
+	
+	var oDiv = document.getElementById('div1');
+	
+	oDiv.onmousedown = function(ev) {
+		var oEvt = ev || event,
+			   b = '',
+			disW = this.offsetWidth,
+			disH = this.offsetHeight,
+			oldL = this.offsetLeft,
+			oldT = this.offsetTop,
+			oldX = oEvt.clientX,
+			oldY = oEvt.clientY;
+
+		if (oldX >oldL  + disW - 10) {
+			b = 'right';
+		} 
+
+		if (oldX < oldL + 10) {
+			b = 'left';
+		}  
+
+		if (oldY < oldT + 10) {
+			b = 'top';
+		} 
+
+		if (oldY > oldT + disH -10) {
+			b = 'bottom';
+		}
+
+		oDiv.setCapture && oDiv.setCapture();
+
+		document.onmousemove = function(ev){
+			var oEvt = ev || event,
+				disX = oEvt.clientX - oldX,
+				disY = oEvt.clientY - oldY;
+
+			switch(b){
+				case 'left':
+					if (disW - disX>10) {
+						oDiv.style.left = oldL + disX + 'px';
+						oDiv.style.width = disW - disX + 'px';
+					}else{
+						oDiv.style.width = 10 + 'px';
+					}
+
+				break;
+
+				case 'right':
+					if (disW + disX>10) {
+						oDiv.style.width = disW + disX + 'px';
+					}else{
+						oDiv.style.width = 10 + 'px';
+					}
+					
+				break;
+
+				case 'top':
+					if (disH - disY>10) {
+						oDiv.style.height = disH - disY +'px';
+						oDiv.style.top = oldT + disY+ 'px';
+					}else{
+						oDiv.style.height = 10 +'px';
+					}
+					
+				break;
+
+				case 'bottom':
+					if (disH + disY>10) {
+						oDiv.style.height = disH + disY +'px';
+					}else{
+						oDiv.style.height = 10 +'px';
+					}
+					
+			}
+			
+
+		}
+
+		document.onmouseup = function(){
+			document.onmousemove = document.onmouseup = null;
+
+			oDiv.releaseCapture && oDiv.releaseCapture();
+		}
+
+		return false;
+	}
+		
+}
+</script>
+</head>
+
+<body>
+	<div id="div1"></div>
+</body>
+</html>

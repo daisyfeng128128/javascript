@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+	*{margin: 0; padding: 0; }
+	div{padding:40px; }
+	#div1{background-color: red; }
+	#div2{background-color: green; }
+	#div3{background-color: blue; }
+</style>
+<script>
+	//给一个对象绑定一个事件处理函数的第一种形式：复制形式
+	//obj.onclick = fn;
+
+	function fn1() {
+		alert(1);
+	}
+	function fn2() {
+		alert(2);
+	}
+
+	// document.onclick = fn1;
+	// document.onclick = fn2;	//会覆盖前面绑定fn1
+	//给一个对象的同一个事件绑定多个不同的函数
+	//给一个元素绑定事件函数的第二种形式
+
+	/*
+	ie：obj.attachEvent(事件名称，事件函数);
+		ie低版本实现不了捕获，因为ie低版本绑定的方法是obj.attachEvent(事件名称，事件函数)
+	标准：obj.addEventListener(事件名称，事件函数，是否捕获);
+		ie高版本有obj.addEventListener(事件名称，事件函数，是否捕获);
+		ie高版本也有obj.attachEvent(事件名称，事件函数);
+		
+	*/
+	document.attachEvent('onclick', fn1);
+	document.attachEvent('onclick', fn2);		//ie高版本先1后2，低版本先2后1
+
+</script>
+</head>
+
+<body>
+</body>
+</html>

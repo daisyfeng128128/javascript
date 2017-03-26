@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.con4{
+		     width: 80%;
+		     height: auto;
+		     overflow: hidden;
+		     margin: 15% auto 0 auto;
+		     color: #FFFFFF;
+		}
+		.con4 .btn{
+		     width: 45%;
+		     height: 40px;
+		     line-height: 40px;
+		     text-align: center;
+		     background: #d8b49c;
+		     display: block;
+		     font-size: 16px;
+		     border-radius: 5px;
+		}
+		.upload{
+		     float: left;
+		     position: relative;
+		}
+		.upload_pic{
+		     display: block;
+		     width: 100%;
+		     height: 40px;
+		     position: absolute;
+		     left: 0;
+		     top: 0;
+		     opacity: 0;
+		     border-radius: 5px;
+		}
+	</style>
+	<script>
+		window.onload = function(){
+			//获取上传按钮
+			var input1 = document.getElementById("upload"); 
+			 
+			if(typeof FileReader==='undefined'){ 
+			     //result.innerHTML = "抱歉，你的浏览器不支持 FileReader"; 
+			     input1.setAttribute('disabled','disabled'); 
+			}else{ 
+			     input1.addEventListener('change',readFile,false); 
+			}
+
+			function readFile(){ 
+			    var file = this.files[0]; 
+			    if(!/image\/\w+/.test(file.type)){ 
+			        alert("文件必须为图片！"); 
+			        return false; 
+			    } 
+			    var reader = new FileReader(); 
+			    reader.readAsDataURL(file); 
+			     //当文件读取成功便可以调取上传的接口，想传哪里传哪里（PS： 你们可以把你们的靓照偷偷发给我！）
+			    reader.onload = function(e){ 
+			        var data = this.result.split(',');
+			        var tp = (file.type == 'image/png')? 'png': 'jpg';
+			        var a = data[1];
+			         //需要上传到服务器的在这里可以进行ajax请求
+			        
+			     }
+			};
+		}
+	</script>
+</head>
+<body>
+	<div class="con4">
+     <span class="btn upload">上传<input type="file" class="upload_pic" id="upload" />
+    </span>
+ </div>
+</body>
+</html>

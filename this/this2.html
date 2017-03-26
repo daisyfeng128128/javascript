@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		function Bbb(){
+			var _this = this;
+			this.b = 5;
+			// alert('aaa'+this)
+			document.getElementById('btn1').onclick = function(){
+				_this.show();
+				// alert('里'+_this)
+			}
+		}
+
+		Bbb.prototype.show = function(){
+			alert('aaa'+this)
+			alert(this.b)
+		}
+
+		window.onload = function(){
+			new Bbb();
+		}
+	</script>
+</head>
+<body>
+	<input type="button" value="按钮1" id="btn1">
+</body>
+</html>

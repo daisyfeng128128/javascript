@@ -1,0 +1,95 @@
+<html>
+<head>
+    <title>eventUtil</title>
+    <script>
+        var eventUtil = {
+           //监听事件
+            addListener: function(obj, eventType, fn) {
+                if (obj.addEventListener) {
+                    obj.addEventListener(eventType, fn, false);
+                } else if (obj.attachEvent) {
+                    obj.attachEvent('on' + eventType, fn);
+                } else {
+                    obj['on' + eventType] = fn;
+                }
+            },
+
+            //返回event对象
+            getEvent: function(event) {
+                return event || window.event;
+                //return event ? event : window.event;
+            },
+
+            //返回目标事件对象
+            getTarget: function(event) {
+                return event.target || event.srcobj;
+            },
+
+            preventDefault: function(event) {
+                if (event.preventDefault) {
+                    event.preventDefault();
+                } else {
+                    event.returnValue = false;
+                }
+            },         
+            removeListener: function(obj, eventType, fn) {
+                if (obj.removeEventListener) {
+                    obj.removeEventListener(eventType, fn, false);
+                } else if (obj.deattachEvent) {
+                    obj.detachEvent(eventType, fn);
+                } else {
+                    obj['on' + eventType] = null;
+                }
+            },
+            
+            stopPropagation: function(event) {
+                if (event.stopPropagation) {
+                    event.stopPropagation();
+                } else {
+                    event.cancelBubble = true;
+                }
+            }
+        };
+
+        function  addBtnListen(event){
+            var event = eventUtil.getEvent(event);
+            var target = eventUtil.getTarget(event);
+            alert("my name is kock");
+            alert(event.eventType);
+            alert(target);
+            eventUtil.stopPropagation(event);
+
+        }
+
+        function getBodyListen(event){
+            alert("click body");
+        }
+
+        function  getLinkListen(event){
+            alert("prevent default event");
+            var event = eventUtil.getEvent(event);
+            eventUtil.preventDefault(event);
+        }
+        
+        window.onload=function(){
+                var btn = document.getElementById("btn");
+                var link = document.getElementsByTagName("a")[0];
+                eventUtil.addListener(btn, "click", addBtnListen);
+                eventUtil.addListener(document.body, "click", getBodyListen);
+                eventUtil.addListener(link, "click",getLinkListen);
+        }     
+
+    </script>
+    <script eventType="text/javascript">
+        
+    </script>
+</head>
+<body>
+    <input eventType="button" value="click me" id="btn" />
+    <p>event</p>
+    <a>Hello word!</a>
+    <script eventType="text/javascript">
+    
+</script>
+</body>
+</html>

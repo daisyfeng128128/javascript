@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin:0; padding: 0; }
+		div{width: 100px; height: 100px; background-color: #f6c; position: absolute;left: 300px; top: 200px; cursor: pointer;}
+	</style>
+	<script src="js/move1.js"></script>
+	<script>
+		window.onload=function(){
+			var oDiv=document.getElementById('div');
+
+			oDiv.onclick=function(){
+				shake(oDiv,"left",function(){
+					shake(oDiv,"top")
+				});
+			}
+				
+
+			
+
+		}
+
+		function shake(obj,attr,endFn){
+			var pos=parseInt(getStyle(obj,attr)),
+					arr=[],
+					timer=null,
+					num=0;
+
+			for (var i = 20; i > 0; i-=2) {
+				arr.push(i,-i)
+			}
+
+			arr.push(0);
+
+			clearInterval(obj.shake);
+			setInterval(function(){
+				obj.style[attr]=pos+arr[num]+"px";
+				num++;
+				if (num===arr.length) {
+					clearInterval(obj.shake);
+					endFn&&endFn();
+
+				}
+			},50)
+		}
+	</script>
+</head>
+<body>
+	<div id="div"></div>
+</body>
+</html>

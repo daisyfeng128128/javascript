@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin: 0; padding: 0; }
+	</style>
+	<script>
+		window.onload=function(){
+			var oT = document.getElementById('t1'),
+				oBtn = document.getElementById('btn');
+
+			oT.onfocus=function(){
+				if (this.value == '请输入') {
+					this.value = '';
+				}
+			}
+
+			oT.onblur=function(){
+				if (oT.value == '') {
+					oT.value = '请输入';
+				}
+			}
+
+			oT.focus();
+
+			oBtn.onclick = function(){
+				oT.select()
+			}
+
+		}
+	</script>
+</head>
+<body>
+	<input type="text" id="t1" value="请输入">
+	<input type="button" id="btn" value="按钮">
+</body>
+</html>

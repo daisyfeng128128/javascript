@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<script>
+window.onload = function() {
+	
+	var oText = document.getElementById('text1');
+	var oBtn = document.getElementById('btn');
+	var oUl = document.getElementById('ul1');
+	
+	oBtn.onclick = function() {
+		//创建元素	document.createElement(标签名)	
+		var oLi = document.createElement('li');
+
+		oLi.innerHTML=oText.value+'<a href="javascript:;">删除</a>';
+		//oUl.appendChild(oLi);
+
+		// oUl.insertBefore(oLi,oUl.children[0]);  //不兼容ie低版本
+		if (oUl.children[0]) {
+			oUl.insertBefore(oLi,oUl.children[0]);
+		}else{
+			oUl.appendChild(oLi);
+		}
+		
+		var aA=document.getElementsByTagName('a');
+
+		for (var i = 0; i < aA.length; i++) {
+			aA[i].index = i;
+			aA[i].onclick = function(){
+				oUl.removeChild(this.parentNode)
+			}
+		}
+	}
+	
+}
+</script>
+</head>
+
+<body>
+	<input type="text" id="text1" /><input type="button" value="留言" id="btn" />
+	<ul id="ul1"></ul>
+</body>
+</html>

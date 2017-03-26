@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin:0; padding:0; }
+		div{width: 100px; height: 100px; background-color: #f6c; position: absolute; left: 0; top: 0; }
+		#div2{background-color: yellow; }
+	</style>
+	<script>
+		
+		window.onload = function(){
+			new Drag('div1');
+			new Drag('div2');
+
+		}
+
+		function Drag(id) {
+			var _this = this;
+			this.oDiv = document.getElementById(id);
+			this.disX = 0;
+			this.disY = 0;
+
+			this.oDiv.onmousedown = function(){
+				 _this.fnDown();
+				 return false;
+			}
+			
+
+		}
+
+		Drag.prototype.fnDown = function (ev){
+			var _this = this;
+			var oEvt = ev || event;
+			this.disX = oEvt.clientX - this.oDiv.offsetLeft;
+			this.disY = oEvt.clientY - this.oDiv.offsetTop;
+
+			this.oDiv.setCapture && this.oDiv.setCapture();
+
+			document.onmousemove = function(){
+				_this.fnMove();
+			}
+
+			document.onmouseup = function(){
+				_this.fnUp();
+			}
+
+			
+		}
+
+
+		Drag.prototype.fnMove = function (ev){
+			var oEvt = ev||event,
+			l = oEvt.clientX - this.disX,
+			t = oEvt.clientY - this.disY,
+			clientW = document.documentElement.clientWidth,
+			clientH = document.documentElement.clientHeight,
+			offW = this.oDiv.offsetWidth,
+			offH = this.oDiv.offsetHeight;
+
+			if (l<50) {
+				l = 0;
+			}else if (l>clientW-offW-50) {
+				l = clientW-offW;
+			}
+
+			if (t<50) {
+				t = 0;
+			}else if (t>clientH-offH-50) {
+				t = clientH-offH;
+			}
+
+
+			this.oDiv.style.left = l + 'px';
+			this.oDiv.style.top = t + 'px';
+		}
+
+		Drag.prototype.fnUp = function (){
+			document.onmousemove = document.onmouseup = null;
+			this.oDiv.releaseCapture && this.oDiv.releaseCapture();
+		}
+
+
+
+
+
+
+
+
+
+	</script>
+</head>
+<body>
+	<div id="div1">
+		<img src="../img/a3.png">
+	</div>
+	<div id="div2">
+		<img src="../img/a3.png">
+	</div>
+</body>
+</html>

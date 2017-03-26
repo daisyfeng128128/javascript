@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="UTF-8">
+	<style>
+    html,body{margin:0;}
+     #div1{
+      width:100px;
+      height:100px;
+      background:red;
+      position:absolute;
+      margin:50px 100px;
+     }
+	</style>
+  <script>
+    window.onload=function(){
+      var adiv=document.getElementById('div1');
+          adiv.onoff=true;
+          
+          adiv.onclick=function(){
+            var a=parseInt(getStyle(adiv,'left'))+parseInt(adiv.offsetLeft);
+            shake ( adiv,'left', function(){adiv.onoff=true});
+          }
+
+        function shake ( obj, attr, endFn ) {
+          var pos = parseInt( getStyle(obj, attr) );
+          var arr = [];           // 20, -20, 18, -18 ..... 0
+          var num = 0;
+          for ( var i=20; i>0; i-=2 ) {
+              arr.push( i, -i );
+          }
+          arr.push(0);
+          if ( obj.onoff) {
+          clearInterval( obj.shake );
+          obj.shake = setInterval(function (){
+                   obj.onoff=false;
+              obj.style[attr] = pos + arr[num] + 'px';
+              num++;
+              if ( num === arr.length ) {
+                  obj.onoff==true
+                  clearInterval( obj.shake );
+                  endFn && endFn();
+              }
+          }, 50);
+      }
+}
+function getStyle(obj, attr ){
+ return obj.currentStyle?obj.currentStyle[attr]:getComputedStyle(obj)[attr];
+ }
+    }
+  </script>
+</head>
+<body>
+<div id="div1"></div>
+</body>
+</html>

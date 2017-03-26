@@ -1,0 +1,103 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+div {width: 200px; height: 200px; background: red; position: absolute;}
+#img1 { position: absolute;}
+</style>
+<script>
+window.onload = function() {
+	
+	var aDiv = document.getElementsByTagName('div');
+
+	for (var i = 0; i < aDiv.length; i++) {
+		drag(aDiv[i])
+	}
+
+	function drag(obj){
+
+		obj.onmousedown = function(ev){
+		var oEvt = ev||event,
+			disX = oEvt.clientX - this.offsetLeft,
+			disY = oEvt.clientY - this.offsetTop;
+
+		if (obj.setCapture) {
+			obj.setCapture();
+		}
+
+		document.onmousemove = function(ev){
+			var oEvt = ev||event,
+			l = oEvt.clientX-disX,
+			t = oEvt.clientY-disY;
+
+			if (l<0) {
+				l = 0;
+			}else if (l>document.documentElement.clientWidth-obj.offsetWidth) {
+				l = document.documentElement.clientWidth-obj.offsetWidth;
+			}
+
+			if (t<0) {
+				t = 0;
+			}else if (t>document.documentElement.clientHeight-obj.offsetHeight){
+				t = document.documentElement.clientHeight-obj.offsetHeight;
+			}
+
+
+			obj.style.left = l +'px';
+			obj.style.top = t +'px';
+
+		}
+
+		document.onmouseup = function(){
+			document.onmousemove = document.onmouseup = null;
+			//释放全局变量
+			if (obj.releaseCapture) {
+				obj.releaseCapture();
+			}
+		}
+
+		return false;
+
+
+
+	}
+	}
+	
+	
+
+
+	
+}
+</script>
+</head>
+
+<body>
+	
+	<div>
+		saldjf
+		<img src="img/m.jpg" alt="">
+		sjfafdl
+	</div>
+	<div>
+		saldjf
+		<img src="img/m.jpg" alt="">
+		sjfafdl
+	</div>
+	<div>
+		saldjf
+		<img src="img/m.jpg" alt="">
+		sjfafdl
+	</div>
+	<div>
+		saldjf
+		<img src="img/m.jpg" alt="">
+		sjfafdl
+	</div>
+
+
+
+	
+</body>
+</html>

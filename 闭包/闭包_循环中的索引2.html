@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+*{ margin:0; padding:0; list-style:none; font-family: "微软雅黑","张海山锐线体简"}
+
+</style>
+<script>
+window.onload = function(){
+	var aLi = document.getElementsByTagName('li');
+	
+		for (var i = 0; i < aLi.length; i++) {
+			(function(i){	//内部函数接收外部函数传进来的参数
+				aLi[i].onclick = function(){
+					alert(i)
+				}
+			})(i)
+		}
+	
+}
+</script>
+</head>
+
+<body>
+
+
+	<ul>
+		<li>111</li>
+		<li>222</li>
+		<li>333</li>
+	</ul>
+
+
+</body>
+</html>

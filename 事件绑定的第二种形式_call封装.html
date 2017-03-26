@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+	*{margin: 0; padding: 0; }
+	div{padding:40px; }
+	#div1{background-color: red; }
+	#div2{background-color: green; }
+	#div3{background-color: blue; }
+</style>
+<script>
+	//给一个对象绑定一个事件处理函数的第一种形式：复制形式
+	//obj.onclick = fn;
+
+	function fn1() {
+		alert(this);
+	}
+	function fn2() {
+		alert(2);
+	}
+
+	// document.attachEvent('onclick', function(){
+	// 	fn1.call(document)
+	// });
+	// document.attachEvent('onclick', fn2);		//ie下this变window
+
+	function bind(obj,evname,fn){
+		if (obj.addEventListener) {
+			obj.addEventListener(evname,fn,false);
+		}else{
+			obj.attachEvent('on'+evname,function(){
+				fn.call(obj)
+			})
+		}
+		
+		
+
+	}
+	bind(document,'click',fn1);
+
+</script>
+</head>
+
+<body>
+</body>
+</html>

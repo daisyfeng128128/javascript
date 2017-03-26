@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin:0; padding: 0; list-style: none; }
+		ul{width:1180px; margin:40px auto; position: relative; }
+	</style>
+	<!-- <script src="js/move1.js"></script> -->
+	<script>
+		window.onload=function(){
+			var oUl=document.getElementById('list'),
+				aLi=oUl.getElementsByTagName('li'),
+				timer=null,
+				num=0;
+
+
+			for (var i = 0; i < 20; i++) {
+				oUl.innerHTML+='<li style="width:50px; height:50px; background-color:#f6c; position:absolute; top:0; left:'+60*i+'px"></li>'
+			}
+
+			document.onclick=function(){
+				clearInterval(timer);
+				timer=setInterval(function(){
+					move(aLi[num],"top",20,300);
+					num++;
+					if (num==aLi.length) {
+						clearInterval(timer);
+					}
+				},50)
+
+				document.onclick=null;
+			}
+			function move(obj,attr,dir,target,endFn){
+				dir = parseInt(getStyle(obj,attr))<target?dir:-dir;
+
+				clearInterval(obj.timer);
+				obj.timer = setInterval(function(){
+					var speed = parseInt(getStyle(obj,attr))+dir;
+
+					if ((speed > target && target >0 ) || (speed <target && speed <0 )){
+						speed = target; 
+
+						clearInterval(obj.timer);
+						endFn && endFn();
+					}
+
+					obj.style[attr] = speed + "px";
+
+				},50)
+				
+				
+			}
+
+			function getStyle(obj,attr){
+				return obj.currentStyle ? obj.currentStyle[attr] : getComputedStyle(obj)[attr];
+			}
+
+
+
+		}
+	</script>
+</head>
+<body>
+	<ul id="list"></ul>
+</body>
+</html>

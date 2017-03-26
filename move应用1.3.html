@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/move1.js"></script>
+	<script>
+		window.onload=function(){
+			var str="",
+				len=20,
+				num=0,
+				timer=null,
+				onOff=true,
+				aDiv=document.getElementsByTagName('div');
+
+			for (var i = 0; i < len; i++) {
+				str+='<div style="width:50px; height:50px; background:#f6c; position:absolute;top:0; left:'+60*i+'px"></div>'
+			}
+
+			document.body.innerHTML=str;
+
+			function moveFn(target,bool){
+				clearInterval(timer);
+				timer=setInterval(function(){
+					move(aDiv[num],"top",23,target)
+					num++;
+					if (num===len) {
+						clearInterval(timer);
+						num=0;
+						onOff=bool;
+					}
+				},100)
+			}
+
+			document.onclick=function(){
+				if (onOff) {
+					moveFn(300,false)
+				}else{
+					moveFn(0,true)
+				}
+				
+				
+			}
+	
+		}
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

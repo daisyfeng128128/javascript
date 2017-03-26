@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin:0; padding: 0; }
+		input{background-color: #ccc; }
+		input.active{background-color: red; }
+		div div{width: 200px; height: 200px; border:1px solid black; display: none; }
+		div div.cur{display: block; }
+	</style>
+	<script>
+		function Aaa(){
+			this.a = 12;
+		}
+
+		Aaa.prototype.show = function(){
+			alert(this.a)
+		}
+
+		var b = new Aaa();
+
+		b.show()
+	</script>
+</head>
+<body>
+
+</body>
+</html>

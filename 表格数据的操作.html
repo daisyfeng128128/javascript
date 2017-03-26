@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		window.onload=function(){
+			var oTab = document.getElementById('tab1'),
+				oTbody = oTab.getElementsByTagName('tbody')[0],
+				data = [
+					{id:1,username:'amy',sex:'女'},
+					{id:2,username:'tom',sex:'男'},
+					{id:3,username:'john',sex:'男'},
+					{id:4,username:'han',sex:'男'},
+				],
+				aTr = oTbody.getElementsByTagName('tr');
+
+			for (var i = 0; i < data.length; i++) {
+				var oTr = document.createElement("tr"),
+					oTd = document.createElement("td");
+
+				oTr.style.background=i%2==1?"#ccc":"#f6c";
+
+				oTd.innerHTML = data[i].id;
+				oTr.appendChild(oTd);
+
+				oTd = document.createElement("td");
+				oTd.innerHTML = data[i].username;
+				oTr.appendChild(oTd);
+
+
+				oTd = document.createElement("td");
+				oTd.innerHTML = data[i].sex;
+				oTr.appendChild(oTd);
+
+				oTd = document.createElement("td");
+				oTd.innerHTML = '&nbsp;';
+				oTr.appendChild(oTd);
+
+				var oA = document.createElement('a');
+					oA.innerHTML = '删除';
+					oA.href = 'javascript:;';
+
+					oA.onclick=function(){
+						oTbody.removeChild(this.parentNode.parentNode);
+
+						for (var i = 0; i < oTbody.rows.length; i++) {
+							oTbody.rows[i].style.background=i%2==1?"#ccc":"#f6c";
+						}
+					}
+
+				oTd.appendChild(oA);
+				oTbody.appendChild(oTr)
+
+			}
+		}
+	</script>
+</head>
+<body>
+	<table id="tab1" width="100%" border="1px">
+		<thead>
+			<tr>
+				<td>编号</td>
+				<td>姓名</td>
+				<td>性别</td>
+				<td>操作</td>
+			</tr>
+		</thead>
+		<tbody></tbody>
+		
+	</table>
+</body>
+</html>

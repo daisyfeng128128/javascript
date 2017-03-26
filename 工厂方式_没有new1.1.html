@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		function createPerson(name,sex){	//构造函数：因为这个函数用来构造对象
+
+			//原料
+			var obj = new Object();
+
+			//加工
+			obj.name = name;
+			obj.sex = sex;
+
+			obj.showName = function(){
+				alert('我的名字叫'+this.name);
+			}
+
+			obj.showSex = function(){
+				alert('我是'+this.sex+'的');
+			}
+
+			//出厂
+			return obj;
+
+		}
+
+		var p1 = createPerson('amy','女'),
+		    p2 = createPerson('blue','女');
+
+
+
+		alert(p1.showName==p2.showName)
+		// p1.showName();
+		// p1.showSex();
+
+
+
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

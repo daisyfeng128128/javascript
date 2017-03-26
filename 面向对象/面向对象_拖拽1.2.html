@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin:0; padding:0; }
+		div{width: 100px; height: 100px; background-color: #f6c; position: absolute; left: 0; top: 0; }
+		#div2{background-color: yellow; }
+	</style>
+	<script src = "js/Drag.js"></script>
+	<script src = "js/LimitDrag.js"></script>
+	<script>
+		
+		window.onload = function(){
+			new Drag('div1');
+			new LimitDrag('div2');
+
+		}
+
+		
+
+
+
+
+
+
+
+
+	</script>
+</head>
+<body>
+	<div id="div1">
+		<img src="../img/a3.png">
+	</div>
+	<div id="div2">
+		<img src="../img/a3.png">
+	</div>
+</body>
+</html>

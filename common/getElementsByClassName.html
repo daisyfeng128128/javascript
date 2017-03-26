@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		window.onload=function(){
+			var oUl=document.getElementById('ul'),
+				aLi=getElementsByClassName('box1');
+
+			function getElementsByClassName(sClass){
+				var aEls = document.getElementsByTagName('*');
+				for (var i = 0; i < aEls.length; i++) {
+					if(aEls[i].className==sClass){
+						aEls[i].style.background="red"
+					}
+				}
+			}
+			
+		}
+	</script>
+</head>
+<body>
+	<ul id="ul">
+		<li>1111</li>
+		<li class="box">2222</li>
+		<li>3333</li>
+		<li class="box1">444</li>
+		<li class="box">4444</li>
+	</ul>
+	
+</body>
+</html>

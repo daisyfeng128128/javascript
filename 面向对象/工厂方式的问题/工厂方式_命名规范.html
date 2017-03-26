@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		
+
+		function CreatePerson(name,sex){	
+			this.name = name;
+			this.sex = sex;
+		}
+
+		CreatePerson.prototype.getName = function(){
+			alert('我的名字是'+this.name)
+		}
+		CreatePerson.prototype.getSex = function(){
+			alert('我是'+this.sex+'的')
+		}
+		
+		var p1 = new CreatePerson('amy','女'),
+			p2 = new CreatePerson('jeo','男');
+
+		alert(p1.getName==p2.getName)	//每执行一次，还是创建两个函数
+
+
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+	*{margin: 0; padding: 0; }
+	#div1{width:100px; height:200px; border:1px solid red; display: none; }
+</style>
+<script>
+window.onload = function(){
+	var oDiv = document.getElementById('div1'),
+		oBtn = document.getElementById('btn');
+
+	oBtn.onclick = function(ev) {
+		var oEvt = ev || event;
+		oEvt.cancelBubble = true;	//阻止当前对象的当前事件的冒泡，是元素的众多事件中仅阻止了这点击，其他事件并没阻止
+		oDiv.style.display = 'block';
+		
+	}
+	document.onclick = function() {
+		oDiv.style.display = 'none';
+	}
+	
+}
+
+</script>
+</head>
+
+<body>
+	<input type="button" id="btn" value="按钮">
+	<div id="div1">
+	</div>
+</body>
+</html>

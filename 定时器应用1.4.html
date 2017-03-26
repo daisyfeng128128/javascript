@@ -10,20 +10,27 @@
 		div{width:100px; height: 100px; background-color: #f6c; position: absolute; left: 30px; top: 50px; }
 	</style>
 	<script>
+
 		window.onload=function(){
+
 			var oBtn=document.getElementById('btn'),
-			    oBox=document.getElementById('box'),
-			    timer=null;
+			    oBox=document.getElementById('box');
+
+			    //oBox.timer=null;
 
 			    oBtn.onclick=function(){
-			    	clearInterval(timer);
-			    	timer=setInterval(function(){
+
+			    	clearInterval(oBox.timer);
+
+			    	oBox.timer=setInterval(function(){
+
 			    		var speed=parseInt(getStyle(oBox,"left"))+2;
+
 				    	if (speed>800) {
 				    		speed=800;
 				    	}
 				    	if (speed==800) {
-				    		clearInterval(timer);
+				    		clearInterval(oBox.timer);
 				    	}
 
 			    		oBox.style.left=speed+"px";

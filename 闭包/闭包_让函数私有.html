@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+*{ margin:0; padding:0; list-style:none; font-family: "微软雅黑","张海山锐线体简"}
+
+</style>
+<script>
+	var show = (function(){
+		var a = 1;
+
+		function fn1(){
+			a++;
+			alert(a)
+		}
+
+		function fn2(){
+			a++;
+			alert(a)
+		}
+
+		return {
+			b:fn1,
+			c:fn2
+		}
+
+	})();
+
+	show.b();
+	show.c();
+
+	//以下都找不到
+	// alert(a);
+	// alert(b);
+	// alert(c)
+
+</script>
+</head>
+
+<body>
+
+<div>
+	<div></div>
+</div>
+
+</body>
+</html>

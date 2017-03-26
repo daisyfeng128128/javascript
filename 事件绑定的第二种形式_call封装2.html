@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>document</title>
+	<script>
+
+		function fn1() {
+			alert(this);
+		}
+		function fn2() {
+			alert(2);
+		}
+
+		function bind(obj,evname,fn){
+			if (obj.addEventListener) {
+				obj.addEventListener(evname,fn,false);
+			}else{
+				obj.attachEvent('on'+evname,function(){
+					fn.call(obj)
+				})
+			}
+		}
+		
+		bind(document,'click',fn1);
+
+	</script>
+	</head>
+
+<body>
+</body>
+</html>

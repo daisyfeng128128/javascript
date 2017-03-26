@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		window.onload = function(){
+			var aIpt = document.getElementsByTagName('input');
+
+			aIpt[0].setCapture();
+			aIpt[0].onclick = function(){
+				alert(1)
+			}
+			aIpt[1].onclick = function(){
+				alert(2)
+			}
+
+		}
+	</script>
+</head>
+<body>
+	<input type="button" value="按钮1">
+	<input type="button" value="按钮2">
+</body>
+</html>

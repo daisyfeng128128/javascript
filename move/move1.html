@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin:0; padding: 0; }
+		#div1{width:100px; height: 100px; background-color: red; position: absolute; left: 0; top: 50px; }
+	</style>
+	<script>
+		window.onload = function(){
+
+				var oDiv = document.getElementById('div1'),
+					oBtn = document.getElementById('btn'),
+					timer = null;
+
+
+				oBtn.onclick = function(){
+					clearInterval(timer);
+
+					timer = setInterval(function(){
+						var iSpeed =11;
+
+						if (oDiv.offsetLeft>300) {
+							clearInterval(timer)
+						}else{
+							oDiv.style.left = oDiv.offsetLeft+iSpeed+'px';
+						}
+
+						
+					},50)
+				}
+			
+		}
+	</script>
+</head>
+<body>
+	<input type="button" value="开始" id="btn">
+	<div id="div1"></div>
+</body>
+</html>

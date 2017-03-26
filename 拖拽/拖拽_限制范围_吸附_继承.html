@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin:0; padding:0; }
+		div{width: 100px; height: 100px; background-color: #f6c; position: absolute; left: 0; top: 0; }
+	</style>
+	<script>
+		var oDiv = null,
+			disX = 0,
+			disY = 0;
+		window.onload = function () {
+			oDiv = document.getElementById('div1');
+
+			oDiv.onmousedown = fnDown;
+		}
+
+		function fnDown(ev){
+			var oEvt = ev || event;
+			disX = oEvt.clientX - oDiv.offsetLeft;
+			disY = oEvt.clientY - oDiv.offsetTop;
+
+			oDiv.setCapture && oDiv.setCapture();
+
+			document.onmousemove = fnMove;
+
+			document.onmouseup = fnUp;
+
+			return false;
+
+		}
+
+		function fnMove(ev){
+			var oEvt = ev||event,
+				   l = oEvt.clientX - disX,
+				   t = oEvt.clientY - disY,
+			 clientW = document.documentElement.clientWidth,
+			 clientH = document.documentElement.clientHeight,
+			 	offW = oDiv.offsetWidth,
+			 	offH = oDiv.offsetHeight;
+
+			if (l<50) {
+				l = 0;
+			}else if (l> clientW - offW -50) {
+				l = clientW - offW;
+			}
+
+				if (t<50) {	
+				t = 0;
+			}else if (t> clientH - offH -50) {
+				t = clientH - offH;
+			}
+
+			oDiv.style.left = l + 'px';
+			oDiv.style.top = t + 'px';
+		}
+
+		function fnUp(){
+			document.onmousemove = document.onmouseup = null;
+			oDiv.releaseCapture && oDiv.releaseCapture();
+		}
+
+
+	</script>
+</head>
+<body>
+	<div id="div1">
+		<img src="../img/a3.png">
+	</div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		
+
+		function createPerson(name,sex){
+			var obj = new Object();
+			obj.name = name;
+			obj.sex = sex;
+
+			obj.getName = function(){
+				alert('我的名字是'+this.name)
+			}
+			obj.getSex = function(){
+				alert('我是'+this.name+'的')
+			}
+
+		}
+		
+		var p1 = createPerson('amy','女'),
+		p2 = createPerson('jeo','男');
+
+		p1.getName();	//此处报错了，因为函数没给返回值
+
+
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

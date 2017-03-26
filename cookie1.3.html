@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		var oDate = new Date();
+		oDate.setDate(oDate.setDate()+5);
+
+		// alert(typeof oDate)
+		// alert(typeof oDate.toGMTString())
+		document.cookie = 'username=amy\n你好;expires='+oDate.toGMTString();
+		document.cookie = 'username=amy';
+		document.cookie = 'age=32';
+		alert(document.cookie)
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

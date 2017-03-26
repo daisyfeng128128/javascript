@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+#div1 {width: 100px; height: 100px; background: red;}
+</style>
+<script>
+/*
+鼠标滚轮事件
+*/
+window.onload = function() {
+	
+	var oDiv = document.getElementById('div1');
+	
+	oDiv.onmousewheel = fn;
+	if (oDiv.addEventListener) {
+		oDiv.addEventListener('DOMMouseScroll',fn,false);
+	}
+
+	function fn(ev) {
+		var oEvt = ev||event,
+			   b = true;
+
+		if (oEvt.wheelDelta) {
+			b = oEvt.wheelDelta>0? true:false;
+		}else{
+			b = oEvt.detail<0? true:false;
+		}
+
+		if (b) {
+			oDiv.style.height = oDiv.offsetHeight -10+'px';
+		}else{
+			oDiv.style.height = oDiv.offsetHeight +10+'px';
+		}
+
+		oEvt.preventDefault && oEvt.preventDefault();  
+		return false;
+	}
+
+	// document.oncontextmenu = function(){
+	// 	return false;
+	// }
+	document.addEventListener('contextmenu',function(ev){
+		var oEvt = ev||event;
+		oEvt.preventDefault && oEvt.preventDefault();  
+		return false;
+	})
+
+
+
+
+}
+</script>
+</head>
+
+<body style="height: 2000px;">
+	<div id="div1"></div>
+</body>
+</html>

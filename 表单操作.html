@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		window.onload=function(){
+			var oForm = document.getElementById('form1');
+
+			// alert(oForm.t1.value);
+			oForm.t1.onchange=function(){
+				alert(this.value)
+			}
+
+			// alert(oForm.sex[0].value)
+			oForm.sex[0].onchange=function(){
+				// alert(1)
+				alert(this.value)
+			}
+
+			oForm.front[0].onchange=function(){
+				alert(1)
+			}
+
+			// alert(oForm.city.value)
+
+			oForm.city.onchange = function(){
+				alert(this.value)
+			}
+
+			// oForm.btn.onclick=function(){
+			// 	//radio,checkbox
+			// 	// alert(oForm.sex[0].checked)
+			// 	for (var i = 0; i < oForm.sex.length; i++) {
+			// 		if (oForm.sex[i].checked) { 
+			// 			alert(oForm.sex[i].value+'被选中了')
+			// 		}
+						
+			// 	}
+			// }
+
+			oForm.btn.onclick=function(){
+				for (var i = 0; i < oForm.front.length; i++) {
+					if (oForm.front[i].checked) { 
+						alert(oForm.front[i].value+'被选中了')
+					}
+						
+				}
+			}
+
+
+
+
+		}
+	</script>
+</head>
+<body>
+	<form action="" id="form1">
+		<input type="text" value="内容" name="t1">
+		<input type="radio" value="男" checked name="sex">男
+		<input type="radio" value="女" name="sex">女
+		<hr>
+		<input type="checkbox" name="front" value="html">html
+		<input type="checkbox" name="front" value="css">css
+		<input type="checkbox" name="front" value="js">js
+
+		<select name="city">
+			<option>请选择城市</option>
+			<option value="北京">北京</option>
+			<option value="上海" selected>上海</option>
+		</select>
+
+		<input type="button" value="按钮" name="btn">
+
+	</form>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin:0; padding: 0; }
+		div{padding:40px; }
+		#div1{background-color: #f5c; }
+		#div2{background-color: yellow; }
+	</style>
+	<script>
+		window.onload = function(){
+			var oDiv3 = document.getElementById('div3'),
+				oDiv2 = document.getElementById('div2'),
+				oDiv1 = document.getElementById('div1');
+
+			function fn(){
+				alert(this.id)
+			}
+
+			oDiv1.addEventListener('click',fn,true);
+			oDiv2.addEventListener('click',fn,true);
+			
+		}
+	</script>
+</head>
+<body>
+	<div id="div1">
+		<div id="div2">
+			<div id="div3"></div>
+		</div>
+	</div>
+</body>
+</html>

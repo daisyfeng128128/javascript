@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<script>
+function fn1(){
+	alert(this)
+}
+function fn2(){
+	alert(2)
+}
+
+// ie下this变window
+document.attachEvent('onclick',function(){
+	fn1.call(document)
+})
+document.attachEvent('onclick',fn2)
+
+
+
+// document.addEventListener('click',fn1,false)
+// document.addEventListener('click',fn2,false)
+</script>
+</head>
+
+<body>
+</body>
+</html>

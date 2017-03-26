@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		var oDate = new Date();
+
+		document.cookie = 'username=amy;expires='+oDate;	//打开的时候已经过期了
+		document.cookie = 'age=32';
+		alert(document.cookie)
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

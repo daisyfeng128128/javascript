@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		var arr1 =  new Array(12,4,7,4,97),
+			arr2 =  new Array(2,4,7,4,7);
+
+		Array.prototype.sum = function(){
+			var result = 0,
+					 i = 0;
+
+			for (var i = 0; i < this.length; i++) {
+				result+=this[i]
+			}
+
+			return result;
+		}
+
+		alert(arr1.sum==arr1.sum)
+		alert(arr1.sum==arr2.sum)
+		alert(arr1.sum==Array.prototype.sum)
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

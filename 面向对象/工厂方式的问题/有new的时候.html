@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>	
+
+		function show(){	
+			//在函数调用前面加new 系统会创建一个新的对象，让它指到this上
+			//var this = new Object();
+			alert(this)
+
+		}
+		
+		show();		//window
+
+		new show()	//新创建的对象
+
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

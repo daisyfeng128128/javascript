@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		window.onload=function(){
+			var oTab=document.getElementById('tab1');
+
+			alert(oTab.tBodies[0].rows[1].cells[1].innerHTML)
+		
+		}
+	</script>
+</head>
+<body>
+	<table id="tab1" width="100%" border="1px">
+		<thead>
+			<tr>
+				<td>编号</td>
+				<td>姓名</td>
+				<td>性别</td>
+				<td>操作</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>1</td>
+				<td>amy</td>
+				<td>女</td>
+				<td><a href="javascript:;">删除</a></td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>john</td>
+				<td>男</td>
+				<td><a href="javascript:;">删除</a></td>
+			</tr>
+		</tbody>
+		
+		
+	</table>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		window.onload = function(){
+			var oForm = document.getElementById('f1');
+
+			oForm.onblur = function(){
+				alert('就是个泡泡')
+			}
+		}
+	</script>
+</head>
+<body>
+	<form action="" id="f1">
+		<input type="text">
+		<input type="radio" name="boy">男
+		<input type="radio" name="girl">女
+		<select name="city" id="">
+			<option value="bj">北京</option>
+			<option value="sh">上海</option>
+			<option value="wh">武汉</option>
+		</select>
+	</form>
+</body>
+</html>

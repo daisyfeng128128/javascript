@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		
+
+		function createPerson(name,sex){	//这个函数的作用是为了创建对象，称为构造函数
+			var obj = new Object();
+			obj.name = name;
+			obj.sex = sex;
+
+			obj.getName = function(){
+				alert('我的名字是'+this.name)
+			}
+			obj.getSex = function(){
+				alert('我是'+this.name+'的')
+			}
+
+			return obj;
+
+		}
+		
+		var p1 = createPerson('amy','女'),
+			p2 = createPerson('jeo','男');
+
+		alert(p1.getName==p2.getName);	
+
+
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

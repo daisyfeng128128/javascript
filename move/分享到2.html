@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin:0; padding: 0; }
+		#div1{width:30px;height: 100px; position: absolute; left: -30px; top:200px; background-color: blue; }
+		#div2{width:30px; height: 40px; position: absolute; right:-30px; top: 10px; background-color: yellow;}
+	</style>
+	<script>
+		window.onload = function(){
+			var oDiv1 = document.getElementById('div1'),
+				oDiv2 = document.getElementById('div2');
+
+			oDiv1.onmouseover = function(){
+				this.style.left = 0;
+			}
+
+			oDiv1.onmouseout = function(){
+				this.style.left = '-30px';
+			}
+
+
+		}
+	</script>
+</head>
+<body>
+	<div id="div1">
+		<div id="div2"></div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		window.onload=function(){
+			var oUl=document.getElementById('ul'),
+				oFirst=oUl.firstElementChild||oUl.firstChild;
+
+			// if (oFirst) {
+			// 	oFirst.style.background="red";
+			// }else{
+			// 	alert('没有子节点可以设置')
+			// }  //这样写万一没子节点就会出问题
+			
+			if (oUl.children[0]) {
+				oUl.children[0].style.background="red";
+			}else{
+				alert('没有子节点可以设置')
+			}
+			//解决了没子节点的兼容性问题
+
+			
+		}
+	</script>
+</head>
+<body>
+	<ul id="ul">
+	
+	</ul>
+	
+</body>
+</html>

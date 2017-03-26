@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin:0; padding: 0; }
+		input{background-color: #ccc; }
+		input.active{background-color: red; }
+		div div{width: 200px; height: 200px; border:1px solid black; display: none; }
+		div div.cur{display: block; }
+	</style>
+	<script>
+		window.onload = function(){
+			var oTab = new TabSwitch('box')	
+		}
+		function TabSwitch(id){
+			var oBox = document.getElementById(id);
+			this.aBtn = oBox.getElementsByTagName('input');
+			this.aDiv = oBox.getElementsByTagName('div');
+
+			for (var i = 0; i < this.aBtn.length; i++) {
+				this.aBtn[i].index = i;
+				this.aBtn[i].onclick = this.tab;
+			}
+		}
+
+		TabSwitch.prototype.tab = function(){
+			alert(this)
+			for (var i = 0; i < this.aBtn.length; i++) {
+				this.aBtn[i].className = '';
+				this.aDiv[i].style.display = 'none';
+			}
+
+			this.className = 'active';
+			this.aDiv[this.index].style.display = 'block';		
+		}
+
+
+	</script>
+</head>
+<body>
+<div id="box">
+	<input class="active" type="button" value="按钮1">
+	<input type="button" value="按钮2">
+	<input type="button" value="按钮3">
+	<div class="cur">1111</div>
+	<div>2222</div>
+	<div>3333</div>
+</div>
+</body>
+</html>

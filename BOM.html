@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		window.onload=function(){
+			var aIpt = document.getElementsByTagName('input'),
+			  opener = null;
+
+			aIpt[0].onclick = function(){
+				opener = window.open();
+
+				// open('http://www.baidu.com');
+				// alert(opener == window)	//不是当前页面，而是新打开的页面window
+
+				opener.document.body.style.background="#f6C";
+				//要是百度地址就改不了背景了，因为跨域了
+
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="button" value="打开新窗口">
+</body>
+</html>

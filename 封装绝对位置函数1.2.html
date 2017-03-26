@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin:0; padding: 0; list-style: none; }
+		div{padding: 40px 50px; }
+		#div1{background-color: red; position: relative;}
+		#div2{background-color: green; position: relative; }
+		#div3{background-color: orange; position: relative;}
+	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oDiv1 = document.getElementById('div1'),
+			 	oDiv2 = document.getElementById('div2'),
+			 	oDiv3 = document.getElementById('div3');
+
+			 	var p=getPos(oDiv3);
+			 	alert(p.top)
+
+			 	function getPos(obj){
+
+			 		var pos={left:0, top:0 };
+
+			 		while(obj){
+				 		pos.left+=obj.offsetLeft;
+				 		pos.top+=obj.offsetTop;
+
+				 		alert('obj:'+obj.id+',obj.offsetParent.id:'+obj.offsetParent.id)
+				 		obj=obj.offsetParent;
+
+			 		}
+
+			 		return pos;
+			 	}
+			 	
+			 	
+
+		}
+	</script>
+</head>
+<body>
+	<div id="div1">
+		<div id="div2">
+			<div id="div3"></div>
+		</div>
+	</div>
+	
+</body>
+</html>

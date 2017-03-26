@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+*{ margin:0; padding:0; list-style:none; font-family: "微软雅黑","张海山锐线体简"}
+div{background: red;}
+</style>
+<script>
+//ie下会引发内存泄漏
+	window.onload = function(){
+		var oDiv = document.getElementById('div1');
+
+		oDiv.onclick = function(){
+			alert(oDiv.id);
+		};
+
+		window.onunload = function(){
+			oDiv.onclick = null;//让它从中间截断，不出现互相引用，内存就会被释放
+		}
+	}
+
+</script>
+</head>
+
+<body>
+
+<div>
+	<div id="div1">div1</div>
+</div>
+
+</body>
+</html>

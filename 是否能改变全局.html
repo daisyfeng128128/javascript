@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		window.onload = function(){
+			var a = 1;
+
+			console.log('函数前'+a);
+			
+			(function(){
+				a=2;
+				console.log('函数中'+a);
+			})()
+
+			console.log('函数后'+a);
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

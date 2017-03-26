@@ -12,8 +12,10 @@
 	<script>
 		window.onload=function(){
 			var oBtn=document.getElementById('btn'),
-			    oBox=document.getElementById('box'),
-			    timer=null;
+			    oBox=document.getElementById('box');
+
+			    //oBox.timer=null;
+			    // 会出错 timer is not defined
 
 			    oBtn.onclick=function(){
 			    	clearInterval(timer);

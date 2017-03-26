@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oUl = document.getElementById('ul');
+				aLi = oUl.getElementsByTagName('li'),
+				 aA = oUl.getElementsByTagName("a");
+
+			for (var i = 0; i < aA.length; i++) {
+				aA[i].index = i;
+				aA[i].onclick=function(){
+					this.parentNode.style.display = "none"; 
+				}
+			}
+
+
+			
+		}
+	</script>
+</head>
+<body>
+	<ul id="ul">
+		<li>11<a href="javascript:;">隐藏</a></li>
+		<li>22<a href="javascript:;">隐藏</a></li>
+		<li>33<a href="javascript:;">隐藏</a></li>
+		<li>44<a href="javascript:;">隐藏</a></li>
+	</ul>
+	
+</body>
+</html>

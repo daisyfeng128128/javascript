@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+	*{margin: 0; padding: 0; }
+	div{width:100px; height: 100px; background-color: red; position: absolute; left:0; top: 0; }
+</style>
+<script>
+window.onload = function(){
+	var oDiv = document.getElementById('div1');
+
+	document.onmousemove = function(ev){
+		var oEvt = ev || event,
+			scrollTop=document.documentElement.scrollTop || document.body.scrollTop;
+			scrollLeft=document.documentElement.scrollLeft || document.body.scrollLeft;
+
+
+		oDiv.style.left = ev.clientX - oDiv.offsetWidth/2 +scrollLeft + 'px';
+		oDiv.style.top = ev.clientY - oDiv.offsetHeight/2 +scrollTop + 'px';
+	}
+}
+
+</script>
+</head>
+
+<body style="width:2000px; height:2000px; ">
+	<div id="div1"></div>
+</body>
+</html>

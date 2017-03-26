@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		function createPerson(name,sex){	//构造函数：因为这个函数用来构造对象
+	
+			//假象的系统内部工作流程 
+			//var this = new Object
+			this.name = name;
+			this.sex = sex;
+
+			this.showName = function(){
+				alert('我的名字叫'+this.name);
+			}
+
+			this.showSex = function(){
+				alert('我是'+this.sex+'的');
+			}
+
+			//假象的系统内部工作流程 
+			//return this;
+
+		}
+
+		var p1 = new createPerson('amy','女'),
+		    p2 = new createPerson('blue','女');
+
+
+		// p1.showName();
+		// p1.showSex();
+		// p2.showName();
+		// p2.showSex();
+		alert(p1.showName==p2.showName)
+
+
+
+
+
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
